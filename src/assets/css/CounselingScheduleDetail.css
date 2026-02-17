@@ -1,0 +1,121 @@
+/* ==============================
+   CounselingScheduleDetail
+   ============================== */
+
+.CounselingScheduleDetail {
+	margin-top: 30px;
+	padding: 24px;
+	background: #ffffff;
+	border-radius: 14px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* empty */
+.CounselingScheduleDetail-empty {
+	margin-top: 40px;
+	text-align: center;
+	color: #6b7280;
+	font-size: 14px;
+}
+
+/* 교수 정보 */
+.CounselingScheduleDetail-professor {
+	margin-bottom: 16px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.CounselingScheduleDetail-professor h3 {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.CounselingScheduleDetail-professor p {
+	margin: 4px 0;
+	font-size: 14px;
+	color: #4b5563;
+}
+
+.CounselingScheduleDetail-subject {
+	font-weight: 600;
+	color: #2563eb;
+}
+
+/* 날짜 */
+.CounselingScheduleDetail-date {
+	margin: 16px 0;
+	font-size: 14px;
+}
+
+/* 시간 선택 */
+.CounselingScheduleDetail-time {
+	margin-top: 20px;
+}
+
+.CounselingScheduleDetail-label {
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
+.CounselingScheduleDetail-slots {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.CounselingScheduleDetail-slot {
+	padding: 8px 14px;
+	font-size: 13px;
+	border-radius: 20px;
+	border: 1px solid #d1d5db;
+	background: #ffffff;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.CounselingScheduleDetail-slot:hover {
+	background: #f3f4f6;
+}
+
+.CounselingScheduleDetail-slot.selected {
+	background: #4f46e5;
+	color: #ffffff;
+	border-color: #4f46e5;
+}
+
+/* 상담 사유 */
+.CounselingScheduleDetail-content {
+	margin-top: 24px;
+}
+
+.CounselingScheduleDetail-content label {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+/* 버튼 */
+.CounselingScheduleDetail-submit {
+	margin-top: 24px;
+	padding: 10px 28px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #ffffff;
+	background: #4f46e5;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background 0.2s ease;
+}
+
+.CounselingScheduleDetail-submit:disabled {
+	background: #9ca3af;
+	cursor: not-allowed;
+}
+
+.CounselingScheduleDetail-submit:not(:disabled):hover {
+	background: #4338ca;
+}

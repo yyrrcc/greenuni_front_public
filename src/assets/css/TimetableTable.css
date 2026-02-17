@@ -1,0 +1,179 @@
+.tt-wrapper {
+	background: #ffffff;
+	border-radius: 20px;
+	padding: 20px 24px;
+	box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+	border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+/* 헤더 영역 */
+.tt-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+	max-width: 1500px; /*  고정 width 대신 max-width */
+	margin: 0 auto 16px; /* 가운데 정렬 */
+
+	padding: 0 8px; /* (선택) 양 끝 살짝 여백 */
+}
+
+.tt-term-text {
+	font-size: 13px;
+	color: #9ca3af;
+	margin-bottom: 4px;
+}
+
+.tt-title {
+	font-size: 20px;
+	font-weight: 700;
+	color: #111827;
+}
+
+/* 우측 아이콘 버튼 (실제 기능 없어도 UI용) */
+.tt-header-icons {
+	display: flex;
+	gap: 6px;
+}
+
+.tt-icon-btn {
+	width: 28px;
+	height: 28px;
+	border-radius: 999px;
+	border: 1px solid #e5e7eb;
+	background: #ffffff;
+	color: #6b7280;
+	font-size: 14px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+	transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.tt-icon-btn:hover {
+	background: #f3f4f6;
+	transform: translateY(-1px);
+}
+
+/* 시간표 그리드 전체 */
+.tt-table {
+	display: flex;
+	border-radius: 16px;
+	border: 1px solid #e5e7eb;
+	overflow: hidden;
+	width: 100%;
+	justify-self: center;
+}
+
+/* 열 공통 */
+.tt-col {
+	position: relative;
+	flex: 1;
+	border-left: 1px solid #e5e7eb;
+}
+
+/* 시간 열만 조금 좁게 */
+.tt-col--time {
+	flex: 0 0 48px;
+	background: #f9fafb;
+}
+
+/* 셀 공통 */
+.tt-cell {
+	border-bottom: 1px solid #e5e7eb;
+	height: 80px;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 상단 요일/빈칸 */
+.tt-cell--head {
+	background: #f3f4f6;
+	font-weight: 600;
+	font-size: 13px;
+	color: #111827;
+
+	height: 68px;
+}
+
+/* 시간 세로 텍스트 */
+.tt-cell--time {
+	font-size: 11px;
+	color: #9ca3af;
+}
+
+/* 빈 슬롯 영역 */
+.tt-cell--slot {
+	background: #ffffff;
+}
+
+/* 과목 블록: 모바일 시간표 앱 느낌 */
+/* 각 col 안에서 position: relative; 기준으로 절대 위치 배치 */
+.tt-block {
+	position: absolute;
+	left: 4px;
+	right: 4px;
+	border-radius: 10px;
+	/* padding: 6px 6px 4px; */
+	padding: 0 0 0 15px;
+	font-size: 11px;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: space-between; */
+	justify-content: space-evenly;
+	box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+	overflow: hidden;
+}
+
+/* 색상 테마 (1,2번 이미지 팔레트 참고) */
+.tt-block--yellow {
+	background: #f5bd2f;
+}
+
+.tt-block--red {
+	background: #f35d5d;
+}
+
+.tt-block--green {
+	background: #1eb646;
+}
+
+.tt-block--blue {
+	background: #1e4d99;
+}
+
+.tt-block--orange {
+	background: #eb721b;
+}
+
+.tt-block--purple {
+	background: #6f4ebb;
+}
+
+.tt-block--default {
+	background: #f37dd9;
+}
+
+/* 텍스트 스타일 */
+.tt-block-name {
+	font-weight: 700;
+	margin-bottom: 2px;
+	line-height: 1.2;
+}
+
+.tt-block-time {
+	font-size: 10px;
+	opacity: 0.9;
+}
+
+.tt-block-room {
+	font-size: 10px;
+	margin-top: 2px;
+	opacity: 0.9;
+}

@@ -1,0 +1,264 @@
+.user-create-sub {
+	margin-top: 6px;
+	font-size: 13px;
+	color: #6b7280;
+}
+
+.user-type-tabs {
+	display: flex;
+	gap: 10px;
+	margin: 14px 0 16px;
+}
+
+.user-type-tab {
+	height: 40px;
+	padding: 0 14px;
+	border-radius: 12px;
+	border: 1px solid #e5e7eb;
+	background: #ffffff;
+	color: #111827;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.user-type-tab:hover {
+	background: #f9fafb;
+}
+
+.user-type-tab.is-active {
+	background: #1f3b2a; /* 너네 그린 톤에 맞춰 조절 가능 */
+	border-color: #1f3b2a;
+	color: #ffffff;
+}
+
+.user-form-actions {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	margin-top: 14px;
+}
+
+.user-reset-btn {
+	height: 44px;
+	padding: 0 14px;
+	border-radius: 12px;
+	border: 1px solid #e5e7eb;
+	background: #ffffff;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.user-reset-btn:hover {
+	background: #f9fafb;
+}
+
+/* 페이지 중앙 정렬 + 폭 제한 */
+.form-container {
+	width: 100%;
+	padding: 28px 16px;
+	display: flex;
+	justify-content: center;
+}
+
+.user-create-card {
+	/* width: 100%; */
+	/* max-width: 1200px; */
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 22px;
+	padding: 22px 22px 18px;
+	box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+}
+
+/* 헤더: 왼쪽 타이틀/설명 + 오른쪽 탭 */
+.user-create-header {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 24px;
+}
+
+.user-create-titlebox h1 {
+	margin: 0;
+	font-size: 22px;
+	font-weight: 900;
+	color: #111827;
+}
+
+.user-create-sub {
+	margin-top: 6px;
+	font-size: 13px;
+	color: #6b7280;
+}
+
+/* 탭: 세그먼트(알약) 형태 */
+.user-type-tabs {
+	display: inline-flex;
+	gap: 6px;
+	padding: 6px;
+	border-radius: 9999px;
+	border: 1px solid #e5e7eb;
+	background: #f9fafb;
+}
+
+.user-type-tab {
+	height: 34px;
+	padding: 0 14px;
+	border-radius: 9999px;
+	border: 0;
+	background: transparent;
+	color: #111827;
+	font-weight: 900;
+	cursor: pointer;
+}
+
+.user-type-tab:hover {
+	background: #ffffff;
+	/* color: #111827;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+}
+
+.user-type-tab.is-active {
+	background: #1f3b2a; /* 그린 톤 */
+	color: #ffffff;
+}
+
+/* 폼 테이블: ✅ 반드시 100%로 */
+.user-form-table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 10px; /* 행 사이 간격 */
+}
+
+/* 섹션 타이틀(기본 정보 / 학생 정보 등) */
+.form-section {
+	padding: 0px 16px;
+	background: #f9fafb;
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+	color: #111827;
+	margin: 0 0 20px 0;
+}
+
+/* InputForm이 th/td 구조일 확률이 높아서 일반적으로 잡아줌 */
+/* .user-form-table th {
+	width: 120px;
+	padding: 8px 10px;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 13px;
+	font-weight: 900;
+	color: #374151;
+}
+
+.user-form-table td {
+	padding: 8px 10px;
+} */
+
+/* ✅ input/select/textarea 폭 꽉 채우기 */
+.user-form-table input,
+.user-form-table select,
+.user-form-table textarea {
+	width: 98%;
+	height: 40px;
+	border-radius: 12px;
+	border: 1px solid #e5e7eb;
+	padding: 0 12px;
+	outline: none;
+	background: #ffffff;
+	color: #111827;
+}
+
+.user-form-table input:focus,
+.user-form-table select:focus,
+.user-form-table textarea:focus {
+	border-color: #1f3b2a;
+	box-shadow: 0 0 0 3px rgba(31, 59, 42, 0.12);
+}
+
+/* 하단 액션바 */
+.user-form-actions {
+	margin-top: 14px;
+	padding-top: 14px;
+	border-top: 1px solid #eef2f7;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.user-form-hint {
+	font-size: 13px;
+	color: #6b7280;
+}
+
+.user-form-btns {
+	display: flex;
+	gap: 10px;
+}
+
+.user-reset-btn {
+	height: 44px;
+	padding: 0 14px;
+	border-radius: 12px;
+	border: 1px solid #e5e7eb;
+	background: #ffffff;
+	font-weight: 900;
+	cursor: pointer;
+}
+
+.user-reset-btn:hover {
+	background: #f9fafb;
+}
+
+.user-submit-btn {
+	height: 44px;
+	padding: 0 16px;
+	border-radius: 12px;
+	border: 1px solid #1f3b2a;
+	background: #1f3b2a;
+	color: #ffffff;
+	font-weight: 900;
+	cursor: pointer;
+}
+
+.user-submit-btn:hover {
+	filter: brightness(0.95);
+}
+
+/* 모바일 대응 */
+@media (max-width: 720px) {
+	.user-create-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.user-type-tabs {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.user-type-tab {
+		flex: 1;
+		text-align: center;
+	}
+
+	.user-form-actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.user-form-btns {
+		width: 100%;
+	}
+
+	.user-reset-btn,
+	.user-submit-btn {
+		flex: 1;
+	}
+
+	.user-form-table th {
+		width: 96px; /* 모바일에서 라벨 폭 줄임 */
+	}
+}

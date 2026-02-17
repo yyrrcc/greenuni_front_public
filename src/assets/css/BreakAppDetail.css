@@ -1,0 +1,162 @@
+/* =========================================
+   BreakDetail.css (final)
+   - BreakApplication.css와 함께 사용
+   - "상단 DataTable" + "하단 기간/구분 표"
+     폭/라벨/정렬을 완전 동일하게 맞춤
+========================================= */
+
+/* 상세 페이지 전용 폭 기준 */
+.break-detail .document--layout {
+	--break-doc-width: 600px; /* ✅ 여기만 바꾸면 상/하단 같이 변함 */
+
+	max-width: 760px;
+	padding: 24px 28px 22px;
+	gap: 16px;
+}
+
+/* ---------------------------------
+   ✅ 상/하단 공통 폭 래퍼
+--------------------------------- */
+.break-detail .break-doc-block {
+	width: 100%;
+	max-width: var(--break-doc-width);
+	margin: 0 auto 14px;
+}
+
+/* ---------------------------------
+   1) DataTable 블럭 강제 정렬
+--------------------------------- */
+
+/* DataTable wrapper가 갖고 있는 기본 max-width/여백 무력화 */
+.break-detail .break-doc-block .data-table-wrapper {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/* 테이블 자체 */
+.break-detail .break-doc-block .data-table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	border: 1px solid var(--border-soft);
+	border-radius: var(--radius-sm);
+	overflow: hidden;
+	background: #fff;
+	font-size: 12.5px;
+}
+
+/* 헤더 톤 */
+.break-detail .break-doc-block .data-table thead th {
+	background: #ffffff;
+	color: var(--text-sub);
+	font-weight: 600;
+	font-size: 11.5px;
+	padding: 8px 10px;
+	border-bottom: 1px solid var(--border-soft);
+	text-align: center;
+}
+
+/* 셀 */
+.break-detail .break-doc-block .data-table th,
+.break-detail .break-doc-block .data-table td {
+	border: 1px solid var(--border-soft);
+	padding: 10px 12px;
+	vertical-align: middle;
+}
+
+/* ✅ "항목" 컬럼 너비 고정 */
+.break-detail .break-doc-block .data-table tbody td:first-child {
+	width: 140px;
+	background: #f9fafb;
+	font-weight: 700;
+	text-align: center;
+	white-space: nowrap;
+}
+
+/* 내용 컬럼 */
+.break-detail .break-doc-block .data-table tbody td:last-child {
+	text-align: left;
+	padding-left: 12px;
+}
+
+/* ---------------------------------
+   2) 하단 기간/구분 표
+--------------------------------- */
+.break-detail .break-doc-block .break-doc-table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	border: 1px solid var(--border-soft);
+	border-radius: var(--radius-sm);
+	overflow: hidden;
+	background: #fff;
+}
+
+/* th/td */
+.break-detail .break-doc-block .break-doc-table th,
+.break-detail .break-doc-block .break-doc-table td {
+	border: 1px solid var(--border-soft);
+	padding: 12px 14px;
+	font-size: 12.5px;
+	vertical-align: middle;
+}
+
+/* ✅ 왼쪽 라벨 컬럼 완전 동일 */
+.break-detail .break-doc-block .break-doc-table th {
+	width: 140px;
+	background: #f9fafb;
+	font-weight: 700;
+	text-align: center;
+	white-space: nowrap;
+}
+
+/* 문구/날짜 행 */
+.break-detail .break-doc-block .break-doc-table tr:last-child td {
+	background: #ffffff;
+	padding: 16px 14px 22px;
+}
+
+.break-detail .break-doc-block .break-doc-table tr:last-child td p {
+	margin: 0;
+	line-height: 1.5;
+}
+
+/* 날짜 오른쪽 정렬 */
+.break-detail .break-doc-block .break-doc-table tr:last-child td p:last-child {
+	text-align: right;
+	color: var(--text-sub);
+	font-size: 12px;
+	margin-top: 10px;
+}
+
+/* ---------------------------------
+   3) 버튼 영역 간격만 정돈
+--------------------------------- */
+.break-detail .schedule-list-actions {
+	margin-top: 14px;
+	gap: 10px;
+}
+
+.break-detail .schedule-list-actions .d-flex {
+	gap: 10px;
+}
+
+/* ---------------------------------
+   Responsive
+--------------------------------- */
+@media (max-width: 900px) {
+	.break-detail .document--layout {
+		--break-doc-width: 100%;
+		max-width: 100%;
+		padding: 22px 20px 18px;
+	}
+}
+
+@media (max-width: 520px) {
+	.break-detail .break-doc-block .data-table tbody td:first-child,
+	.break-detail .break-doc-block .break-doc-table th {
+		width: 110px;
+	}
+}

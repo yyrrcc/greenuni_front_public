@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>그린 상담실</title>
+
+		<!-- 폰트 -->
+		<!-- 폰트 -->
+		<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/pretendard.min.css" />
+
+		<!-- (레거시 유지) webrtc-adapter / jQuery / blockUI / bootstrap / bootbox / spin / toastr -->
+		<!-- (레거시 유지) webrtc-adapter / jQuery / blockUI / bootstrap / bootbox / spin / toastr -->
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js"
+		></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js"
+		></script>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
+			type="text/css"
+		/>
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"
+		></script>
+
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"
+		></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+		<!-- Janus + 너 JS (경로 유지: 같은 폴더에 있음) -->
+		<!-- Janus + 너 JS (경로 유지: 같은 폴더에 있음) -->
+		<script type="text/javascript" src="janus.js"></script>
+		<script type="text/javascript" src="videoroomtest.js?ver=12"></script>
+
+		<link rel="stylesheet" href="css/consult.css" type="text/css" />
+	</head>
+
+	<body>
+		<div class="consult-shell">
+			<!-- 상단 바 -->
+			<header class="consult-topbar">
+				<div class="brand">
+					<div class="brand-badge">GU</div>
+					<div class="brand-text">
+						<div class="brand-title">그린 상담실</div>
+						<div class="brand-sub">교수 · 학생 화상상담</div>
+					</div>
+
+					<!-- 채팅방 입장 이름 고정 -->
+					<script>
+						document.addEventListener('DOMContentLoaded', () => {
+							const p = new URLSearchParams(location.search);
+							const display = p.get('display');
+							const code = p.get('code'); // ✅ room이 아니라 code
+
+							if (display) {
+								const username = document.getElementById('username');
+								if (username) {
+									username.value = display;
+									username.readOnly = true; // 수정 못하게(원하면 제거)
+								}
+							}
+
+							// ✅ 상담방 코드 입력칸에 code 미리 채우기(선택)
+							if (code) {
+								const roomname = document.getElementById('roomname');
+								if (roomname) {
+									roomname.value = code;
+								}
+							}
+						});
+					</script>
+
+
+				<!-- JS가 #start를 one("click")으로 잡음: id 유지 필수 -->
+				<p class="perm-hint">상담을 시작 후<b>카메라/마이크 권한</b>을 요청시 <b>허용</b>을 눌러주세요.</p>
+				<button class="btn btn-primary" autocomplete="off" id="start">상담 시작</button>
+			</header>
+
+			<main class="consult-main">
+				<!-- 왼쪽: 안내 + 입장 -->
+				<section class="consult-left">
+					<!-- JS가 #details를 remove() 하기도 함 -->
+					<div class="card" id="details">
+						<h2 class="card-title">상담을 시작해볼까요?</h2>
+						<p class="card-desc"><b>상담 시작</b>을 누른 뒤, <b>상담방 코드</b>를 입력하면 입장합니다.</p>
+						<ul class="card-list">
+							<li>같은 상담방 코드로 접속하면 서로 연결됩니다.</li>
+							<li>카메라/마이크 권한 허용이 필요합니다.</li>
+							<li>네트워크 환경에 따라 연결까지 몇 초 걸릴 수 있어요.</li>
+						</ul>
+
+						<div class="tip">
+							<span class="tip-dot"></span>
+							<span class="tip-text"> 상담방 코드는 교수와 상담 예약 시 받을 수 있습니다.</span>
+						</div>
+					</div>
+
+					<!-- JS가 show/hide 하는 컨테이너: id 유지 -->
+					<div class="card hide" id="videojoin">
+						<div id="registernow">
+							<div class="field">
+								<div class="field-label">
+									<span class="label label-info" id="room"></span>
+									<span class="field-title">상담방 코드</span>
+								</div>
+								<input autocomplete="off" class="form-control" type="text" placeholder="예: 1111" id="roomname" />
+							</div>
+
+							<div class="field">
+								<div class="field-label">
+									<span class="label label-info" id="you"></span>
+									<span class="field-title">닉네임</span>
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon">이름</span>
+									<input
+										autocomplete="off"
+										class="form-control"
+										type="text"
+										placeholder="예: 김교수 / 20230001"
+										id="username"
+										onkeypress="return checkEnter(this, event);"
+									/>
+									<span class="input-group-btn">
+										<button class="btn btn-success" autocomplete="off" id="register">입장</button>
+									</span>
+								</div>
+
+								<!-- <div class="mini-help">* 상담방 코드는 교수와 상담 확정시 받을 수 있습니다.</div> -->
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 오른쪽: 영상 -->
+				<section class="consult-right">
+					<!-- JS가 show/hide 하는 컨테이너: id 유지 -->
+					<div class="hide" id="videos">
+						<div class="video-grid">
+							<!-- Local -->
+							<div class="panel panel-default video-card">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+									<span class="title-left">
+										내 화면 <span class="label label-primary hide" id="publisher"></span>
+									</span>
+
+									<span class="title-right">
+										<span id="localControlsHead" class="local-controls-head hide">
+										<button class="btn btn-warning btn-xs" id="mute" type="button">Mute</button>
+										<button class="btn btn-warning btn-xs" id="unpublish" type="button">Unpublish</button>
+										</span>
+										<!-- bitrate dropdown -->
+										<div class="btn-group btn-group-xs pull-right hide">
+										<div class="btn-group btn-group-xs">
+											<button id="bitrateset" autocomplete="off" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+											화질<span class="caret"></span>
+											</button>
+											<ul id="bitrate" class="dropdown-menu" role="menu">
+											<li><a href="#" id="0">제한 없음</a></li>
+											<li><a href="#" id="128">128kbps</a></li>
+											<li><a href="#" id="256">256kbps</a></li>
+											<li><a href="#" id="512">512kbps</a></li>
+											<li><a href="#" id="1024">1mbps</a></li>
+											<li><a href="#" id="1500">1.5mbps</a></li>
+											<li><a href="#" id="2000">2mbps</a></li>
+											</ul>
+										</div>
+										</div>
+									</span>
+									</h3>
+								</div>
+
+								<!-- JS가 #videolocal에 video append + parent().parent().block() 사용 -->
+								<div class="panel-body" id="videolocal"></div>
+							</div>
+
+							<!-- Remote 1 -->
+							<div class="panel panel-default video-card">
+								<div class="panel-heading">
+									<h3 class="panel-title">상대 화면 <span class="label label-info hide" id="remote1"></span></h3>
+								</div>
+								<div class="panel-body" id="videoremote1"></div>
+							</div>
+
+							<!-- Remote 2~5는 필요하면 켜지게 두되, 디자인상은 작게 -->
+							<div class="panel panel-default video-card video-small">
+								<div class="panel-heading">
+									<h3 class="panel-title">참가자 #2 <span class="label label-info hide" id="remote2"></span></h3>
+								</div>
+								<div class="panel-body" id="videoremote2"></div>
+							</div>
+
+							<div class="panel panel-default video-card video-small">
+								<div class="panel-heading">
+									<h3 class="panel-title">참가자 #3 <span class="label label-info hide" id="remote3"></span></h3>
+								</div>
+								<div class="panel-body" id="videoremote3"></div>
+							</div>
+
+							<div class="panel panel-default video-card video-small">
+								<div class="panel-heading">
+									<h3 class="panel-title">참가자 #4 <span class="label label-info hide" id="remote4"></span></h3>
+								</div>
+								<div class="panel-body" id="videoremote4"></div>
+							</div>
+
+							<div class="panel panel-default video-card video-small">
+								<div class="panel-heading">
+									<h3 class="panel-title">참가자 #5 <span class="label label-info hide" id="remote5"></span></h3>
+								</div>
+								<div class="panel-body" id="videoremote5"></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- videos가 hide일 때(입장 전) 보여줄 프리뷰 -->
+					<div class="prejoin" id="prejoin">
+						<div class="prejoin-inner">
+							<div class="prejoin-title">상담 시작 전 안내</div>
+							<div class="prejoin-desc">
+								좌측에서 <b>상담 시작</b> → <b>상담방 코드</b> 입력 후 입장하면<br />
+								이곳에 <b>내 화면 / 상대 화면</b>이 표시됩니다.
+							</div>
+
+							<div class="prejoin-box">
+								<div class="prejoin-chip">카메라/마이크 권한을 허용해주세요</div>
+								<div class="prejoin-skeleton"></div>
+							</div>
+						</div>
+					</div>
+
+					<script>
+						(function () {
+							const setMode = () => {
+								const videos = document.getElementById('videos');
+								if (!videos) return;
+								const inCall = !videos.classList.contains('hide') && videos.style.display !== 'none';
+								document.body.classList.toggle('in-call', inCall);
+							};
+
+							const obs = new MutationObserver(setMode);
+							obs.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class', 'style'] });
+
+							setMode();
+						})();
+					</script>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>

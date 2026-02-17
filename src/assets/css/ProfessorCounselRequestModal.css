@@ -1,0 +1,255 @@
+/* =========================
+   ProfessorCounselRequestModal
+   - clean card / subtle depth / #111827 accent
+   ========================= */
+
+/* 배경 + 살짝 블러 */
+.pcm-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(17, 24, 39, 0.45);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+
+	/* ✅ 더 예쁘게 */
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+
+	padding: 18px;
+}
+
+/* 모달 카드 */
+.pcm-modal {
+	width: 640px;
+	max-width: 92vw;
+
+	/* ✅ 높이 고정 대신 내용에 따라 자연스럽게 */
+	min-height: 380px;
+	max-height: 86vh;
+
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 18px;
+
+	padding: 18px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+	/* ✅ 스크롤은 모달 내부에서만 */
+	overflow: hidden;
+
+	/* ✅ 오픈 애니메이션 */
+	transform: translateY(10px) scale(0.98);
+	opacity: 0;
+	animation: pcm-pop 160ms ease-out forwards;
+}
+
+@keyframes pcm-pop {
+	to {
+		transform: translateY(0) scale(1);
+		opacity: 1;
+	}
+}
+
+/* 헤더 */
+.pcm-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 12px;
+	margin-bottom: 12px;
+	border-bottom: 1px solid #f3f4f6;
+}
+
+.pcm-title {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 900;
+	color: #111827;
+	letter-spacing: -0.2px;
+}
+
+/* 닫기 버튼을 동그란 아이콘 버튼처럼 */
+.pcm-x {
+	width: 36px;
+	height: 36px;
+	border-radius: 12px;
+	border: 1px solid #e5e7eb;
+	background: #ffffff;
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+	color: #111827;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.pcm-x:hover {
+	background: #f3f4f6;
+}
+
+/* 본문 레이아웃: 위쪽 스크롤 */
+.pcm-body {
+	/* ✅ 필요하면 JSX에 pcm-body 래퍼를 추가해도 좋아 (선택) */
+}
+
+.pcm-content {
+	/* 모달 안쪽에서 스크롤 */
+	max-height: calc(86vh - 130px);
+	overflow: auto;
+	padding-right: 4px; /* 스크롤바 공간 */
+}
+
+/* info 박스: 카드화 */
+.pcm-info {
+	background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+	padding: 12px 14px;
+	font-size: 14px;
+	color: #111827;
+	margin-bottom: 14px;
+
+	display: grid;
+	gap: 6px;
+}
+
+.pcm-info strong {
+	font-weight: 900;
+}
+
+/* 행 간격 좀 더 넉넉하게 */
+.pcm-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 12px;
+}
+
+/* textarea 구역은 세로 배치 */
+.pcm-col {
+	flex-direction: column;
+	align-items: stretch;
+	gap: 8px;
+}
+
+.pcm-label {
+	font-size: 13px;
+	font-weight: 800;
+	color: #111827;
+	letter-spacing: -0.1px;
+}
+
+/* textarea 디자인 업 */
+.pcm-textarea {
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+	padding: 12px;
+	resize: vertical;
+	background: #ffffff;
+	font-size: 14px;
+	line-height: 1.4;
+
+	box-shadow: 0 1px 0 rgba(17, 24, 39, 0.02);
+}
+
+.pcm-textarea:focus {
+	outline: none;
+	border-color: #111827;
+	box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.12);
+}
+
+/* 하단 액션 바: 살짝 분리 */
+.pcm-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+
+	padding-top: 12px;
+	margin-top: 12px;
+	border-top: 1px solid #f3f4f6;
+}
+
+/* 버튼 공통 */
+.pcm-btn {
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+	padding: 10px 14px;
+	background: #ffffff;
+	cursor: pointer;
+	font-weight: 800;
+	color: #111827;
+	letter-spacing: -0.1px;
+	min-height: 42px;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.pcm-btn:hover {
+	background: #f3f4f6;
+	transform: translateY(-1px);
+}
+
+.pcm-btn:active {
+	transform: translateY(0);
+}
+
+/* primary 버튼: 더 고급스럽게 */
+.pcm-btn-primary {
+	background: #111827;
+	color: #ffffff;
+	border-color: #111827;
+	box-shadow: 0 10px 22px rgba(17, 24, 39, 0.18);
+}
+
+.pcm-btn-primary:hover {
+	background: #0b1220;
+	border-color: #0b1220;
+}
+
+/* disabled */
+.pcm-btn:disabled,
+.pcm-btn-primary:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+	transform: none;
+	box-shadow: none;
+}
+
+/* 힌트 */
+.pcm-hint {
+	margin-top: 10px;
+	padding: 10px 12px;
+	border-radius: 14px;
+	border: 1px dashed #e5e7eb;
+	background: #fafafa;
+	font-size: 12px;
+	color: #6b7280;
+}
+
+/* (선택) OptionForm이 모달에서 너무 넓거나 튀면 감싸는 div에 적용 */
+.pcm-row :is(select, input, textarea) {
+	width: 100%;
+}
+
+/* 스크롤바(크롬) 약간 깔끔하게 */
+.pcm-modal ::-webkit-scrollbar {
+	width: 10px;
+}
+
+.pcm-modal ::-webkit-scrollbar-thumb {
+	background: #e5e7eb;
+	border-radius: 999px;
+	border: 2px solid #ffffff;
+}
+
+.pcm-modal ::-webkit-scrollbar-thumb:hover {
+	background: #d1d5db;
+}

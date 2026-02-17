@@ -1,0 +1,265 @@
+/* CounselingReserve.css */
+
+/* ===== page ===== */
+.reserve-page {
+	width: 100%;
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* ===== 위쪽: 상담 예약(과목 선택) ===== */
+.reserve-top {
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 18px;
+	padding: 18px;
+	box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+}
+
+.reserve-top h2 {
+	margin: 0 0 12px;
+	font-size: 20px;
+	font-weight: 900;
+	color: #111827;
+	letter-spacing: -0.2px;
+}
+
+.reserve-top select,
+.reserve-top input {
+	width: 100%;
+}
+
+.reserve-top select {
+	height: 44px;
+	padding: 0 14px;
+	border-radius: 12px;
+	border: 1px solid #e5e7eb;
+	background: #ffffff;
+	color: #111827;
+	font-weight: 700;
+	outline: none;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.reserve-top select:focus {
+	border-color: #111827;
+	box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.08);
+}
+
+.reserve-top .reserve-schedule {
+	margin-top: 14px;
+	padding-top: 14px;
+	border-top: 1px dashed #e5e7eb;
+}
+
+/* ===== 아래쪽: 2분할 ===== */
+.reserve-bottom {
+	display: grid;
+	grid-template-columns: 1.2fr 1fr; /* 왼쪽(전체 신청) 조금 더 넓게 */
+	gap: 16px;
+	min-width: 0; /* grid overflow 방지 */
+}
+
+.reserve-panel {
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 18px;
+	padding: 18px;
+	box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	min-width: 0; /* 내부 요소가 넘칠 때 잘림 방지 */
+}
+
+.reserve-panel h3 {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 900;
+	color: #111827;
+	letter-spacing: -0.2px;
+}
+
+/* ===== DataTable: 패널 안에서 절대 안 짤리게 ===== */
+.reserve-panel .data-table-wrapper {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: auto; /* ✅ 넘치면 가로스크롤 */
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+	border-radius: 14px; /* 스크롤 컨테이너도 둥글게 */
+	min-width: 0;
+}
+
+/* 테이블 자체 */
+.reserve-panel .data-table {
+	width: 100% !important;
+	max-width: 100% !important;
+	table-layout: fixed; /* ✅ 반쪽 패널에서 컬럼 안정화 */
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+	overflow: hidden;
+	background: #ffffff;
+}
+
+/* 헤더 */
+.reserve-panel .data-table thead th {
+	background: #0f6b3a;
+	color: #ffffff;
+	font-weight: 900;
+	font-size: 12px;
+	padding: 10px 10px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* 바디 셀 */
+.reserve-panel .data-table tbody td {
+	padding: 10px 10px;
+	font-size: 12px;
+	color: #111827;
+	border-bottom: 1px solid #eef2f7;
+	background: #ffffff;
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* 줄바꿈 추가 */
+/* 왼쪽(전체 신청 내역)에서 "상담사유"만 줄바꿈 허용 + 2줄 제한 */
+.reserve-bottom .reserve-panel:first-child .data-table tbody td[data-col='상담사유'] {
+	white-space: normal; /* 줄바꿈 허용 */
+	word-break: break-word;
+	line-height: 1.35;
+
+	/* 2줄까지만 보여주고 넘치면 말줄임 */
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+
+/* hover */
+.reserve-panel .data-table tbody tr:hover td {
+	background: #f9fafb;
+}
+
+/* 빈 상태 */
+.reserve-empty {
+	padding: 14px;
+	border: 1px dashed #e5e7eb;
+	border-radius: 14px;
+	background: #f9fafb;
+	color: #6b7280;
+	font-size: 13px;
+}
+
+/* 스크롤바 */
+/* 스크롤바 깔끔하게 (왼쪽 버튼 영역 제거) */
+.reserve-panel .data-table-wrapper::-webkit-scrollbar {
+	height: 10px;
+}
+
+.reserve-panel .data-table-wrapper::-webkit-scrollbar-button {
+	display: none; /* ✅ 왼쪽/오른쪽 버튼 제거 */
+	width: 0;
+	height: 0;
+}
+
+.reserve-panel .data-table-wrapper::-webkit-scrollbar-track {
+	background: #f3f4f6;
+	border-radius: 999px;
+}
+
+.reserve-panel .data-table-wrapper::-webkit-scrollbar-thumb {
+	background: rgba(17, 24, 39, 0.35);
+	border-radius: 999px;
+}
+
+/* Firefox */
+.reserve-panel .data-table-wrapper {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(17, 24, 39, 0.35) #f3f4f6;
+}
+
+.reserve-panel .data-table {
+	min-width: 0 !important;
+}
+
+/* ================================
+   CounselingReserve 전용: DataTable wrapper 카드 제거 + 스크롤 정리
+   ================================ */
+
+/* 이 페이지에서는 DataTable의 wrapper를 "카드"가 아니라 "그냥 컨테이너"로 */
+.reserve-panel .data-table-wrapper {
+	padding: 0 !important;
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	border-radius: 14px; /* 스크롤/클립용만 */
+}
+
+/* 데스크탑(2분할)에서는 가로 스크롤 숨김 -> ellipsis로 해결 */
+.reserve-bottom .reserve-panel .data-table-wrapper {
+	overflow-x: hidden !important;
+}
+
+/* 테이블이 패널 폭에 정확히 맞도록 */
+.reserve-panel .data-table {
+	width: 100% !important;
+	max-width: 100% !important;
+	table-layout: fixed !important;
+}
+
+/* ===== 반응형 ===== */
+
+/* 태블릿: 1열 전환 */
+@media (max-width: 1100px) {
+	.reserve-bottom {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* 모바일: 패딩/폰트 조금 줄이기 */
+@media (max-width: 640px) {
+	.reserve-top,
+	.reserve-panel {
+		padding: 14px;
+		border-radius: 16px;
+	}
+
+	.reserve-top h2 {
+		font-size: 18px;
+	}
+
+	.reserve-panel h3 {
+		font-size: 16px;
+	}
+
+	.reserve-panel .data-table thead th,
+	.reserve-panel .data-table tbody td {
+		padding: 9px 8px;
+		font-size: 12px;
+	}
+
+	.reserve-top select {
+		height: 42px;
+	}
+}
+
+/* 태블릿/모바일(1열)에서는 화면이 좁으니 필요하면 가로 스크롤 허용 */
+@media (max-width: 1100px) {
+	.reserve-bottom .reserve-panel .data-table-wrapper {
+		overflow-x: auto !important;
+		-webkit-overflow-scrolling: touch;
+	}
+}

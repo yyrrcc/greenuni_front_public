@@ -1,0 +1,126 @@
+/* CreatePayment.css */
+:root {
+	--primary-green: #006838;
+	--primary-green-light: #e6f4ed;
+	--text-dark: #1f2933;
+	--text-gray: #6b7280;
+	--border-light: #e5e7eb;
+	--bg-card: #ffffff;
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* 페이지 래퍼 */
+.payment-container {
+	max-width: 820px;
+	margin: 40px auto;
+	padding: 30px;
+	background-color: var(--bg-card);
+	border-radius: 16px;
+	box-shadow: var(--shadow-md);
+	border: 1px solid var(--border-light);
+}
+
+/* 제목 */
+.payment-title {
+	font-size: 24px;
+	font-weight: 800;
+	color: var(--text-dark);
+	margin-bottom: 18px;
+	text-align: center;
+	border-bottom: 2px solid var(--primary-green-light);
+	padding-bottom: 14px;
+	letter-spacing: -0.02em;
+}
+
+/* 설명 */
+.payment-desc {
+	text-align: center;
+	color: var(--text-gray);
+	font-size: 14px;
+	line-height: 1.6;
+	margin-bottom: 22px;
+}
+
+/* 안내/경고 박스 */
+.payment-info {
+	background: #f8fafc;
+	border: 1px solid var(--border-light);
+	border-radius: 12px;
+	padding: 18px 18px;
+	margin-bottom: 22px;
+}
+
+.payment-info-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 800;
+	color: var(--text-dark);
+	margin-bottom: 10px;
+}
+
+.payment-info ul {
+	margin: 0;
+	padding-left: 18px;
+	color: var(--text-gray);
+	font-size: 13px;
+	line-height: 1.65;
+}
+
+/* 액션 카드 */
+.payment-action-card {
+	background-color: #f8fafc;
+	border-radius: 12px;
+	padding: 22px;
+	border: 1px solid var(--border-light);
+	text-align: center;
+}
+
+.payment-status {
+	font-size: 16px;
+	color: var(--text-dark);
+	margin-bottom: 14px;
+	font-weight: 700;
+}
+
+.payment-highlight {
+	color: var(--primary-green);
+	font-weight: 900;
+}
+
+/* 버튼 */
+.payment-btn {
+	background-color: var(--primary-green);
+	color: white;
+	border: none;
+	padding: 12px 24px;
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: 800;
+	cursor: pointer;
+	transition: transform 0.08s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: 0 2px 4px rgba(0, 104, 56, 0.2);
+}
+
+.payment-btn:hover:not(:disabled) {
+	background-color: #004b29;
+	transform: translateY(-1px);
+}
+
+.payment-btn:active:not(:disabled) {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+.payment-btn:disabled {
+	background-color: #cbd5e1;
+	cursor: not-allowed;
+	box-shadow: none;
+}
+
+/* 하단 안내 문구 */
+.payment-footnote {
+	margin-top: 14px;
+	font-size: 13px;
+	color: var(--text-gray);
+}

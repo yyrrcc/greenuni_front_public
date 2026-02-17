@@ -1,0 +1,185 @@
+.list-page {
+	width: 100%;
+	justify-self: center;
+	padding: 22px 18px;
+}
+
+.list-card {
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 18px;
+	box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+	padding: 18px 20px;
+}
+
+.list-head {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 14px;
+}
+
+.list-title {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 900;
+	color: #111827;
+	letter-spacing: -0.02em;
+}
+
+.list-subtitle {
+	margin: 4px 0 0;
+	font-size: 13px;
+	color: #6b7280;
+	line-height: 1.4;
+}
+
+.list-divider {
+	height: 1px;
+	background: #e5e7eb;
+	margin: 14px 0;
+}
+
+/* 검색 영역 */
+.filters {
+	background: #f9fafb;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	padding: 14px;
+}
+
+.filters-form {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px 14px;
+	align-items: end;
+}
+
+.filters-actions {
+	grid-column: 1 / -1;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 2px;
+}
+
+.btn-primary {
+	height: 40px;
+	padding: 0 14px;
+	border-radius: 12px;
+	border: 1px solid #111827;
+	background: #111827;
+	color: #ffffff;
+	font-weight: 800;
+	cursor: pointer;
+	transition: transform 0.05s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-primary:hover {
+	background: #0b1220;
+}
+
+.btn-primary:active {
+	transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* 테이블 섹션 */
+.table-section {
+	margin-top: 14px;
+}
+
+.table-topline {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.table-hint {
+	font-size: 12px;
+	color: #6b7280;
+}
+
+/* 페이징 */
+.pagination-wrap {
+	margin-top: 14px;
+	display: flex;
+	justify-content: center;
+}
+
+/* 로딩/빈 상태 */
+.state-text {
+	margin: 0;
+	padding: 14px;
+	color: #6b7280;
+	font-size: 13px;
+	text-align: center;
+	background: #f9fafb;
+	border: 1px dashed #e5e7eb;
+	border-radius: 16px;
+}
+
+/* BreakAppListStaff에 있던 split--div 대체/개선 */
+.split--div {
+	height: 3px;
+}
+
+/* 문서 레이아웃과 동일한 기준으로 버튼 영역도 가운데 정렬 */
+.break-detail-actions {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 18px;
+}
+
+/* 버튼 묶음: 가운데 + 간격 */
+.break-detail-actions__group {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+/* 문서 레이아웃 폭을 따라가게 하고 싶으면(강추) */
+.document--layout {
+	width: 1300px;
+}
+
+.break-detail-actions {
+	max-width: 760px; /* document--layout과 동일 */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* 버튼 약간 예쁘게(부트스트랩 유지하면서 손만 봄) */
+.break-detail-actions__group .btn {
+	min-width: 96px;
+	border-radius: 12px;
+	font-weight: 800;
+}
+
+/* 반응형 */
+@media (max-width: 720px) {
+	.list-page {
+		padding: 16px 12px;
+	}
+	.list-card {
+		padding: 16px 14px;
+	}
+	.filters-form {
+		grid-template-columns: 1fr;
+	}
+	.filters-actions {
+		justify-content: stretch;
+	}
+	.btn-primary {
+		width: 100%;
+	}
+}

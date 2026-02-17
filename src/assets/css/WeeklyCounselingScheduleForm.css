@@ -1,0 +1,77 @@
+/* ===== Weekly Counseling Schedule ===== */
+
+.weekly-wrap {
+	max-width: 960px;
+	margin: 30px auto;
+	padding: 24px;
+	background: #ffffff;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.weekly-title {
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+
+.weekly-range {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+/* 테이블 */
+.weekly-table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	font-size: 14px;
+}
+
+.weekly-table th {
+	background: #f4f6f8;
+	font-weight: 600;
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+}
+
+.weekly-table td {
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+}
+
+.weekly-date {
+	font-weight: 600;
+	background: #fafafa;
+}
+
+/* 슬롯 */
+.weekly-slot {
+	background: #ffffff;
+}
+
+.weekly-checkbox {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	accent-color: #4f46e5; /* 체크 색 */
+}
+
+/* 버튼 */
+.weekly-save-btn {
+	margin-top: 24px;
+	padding: 10px 24px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+	background: #4f46e5;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background 0.2s ease;
+}
+
+.weekly-save-btn:hover {
+	background: #4338ca;
+}

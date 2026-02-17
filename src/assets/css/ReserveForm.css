@@ -1,0 +1,85 @@
+/* ReserveForm.css */
+
+.rf-wrap {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 28px;
+	background: #ffffff;
+	border-radius: 14px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 과목 선택 후 보여지는 영역 */
+.reserve-schedule {
+	margin-top: 20px;
+}
+
+/* 상담 사유 섹션 */
+.rf-reason-section {
+	margin: 28px 0;
+}
+
+/* 사유 라벨 */
+.rf-label {
+	display: block;
+	font-size: 15px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+/* 사유 입력 textarea */
+.rf-textarea {
+	width: 100%;
+	min-height: 120px;
+	padding: 14px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	resize: vertical;
+	font-size: 14px;
+	font-family: inherit;
+	transition: border-color 0.2s;
+}
+
+.rf-textarea:focus {
+	outline: none;
+	border-color: #155c34;
+	background: #f6f9ff;
+}
+
+.rf-textarea::placeholder {
+	color: #999;
+}
+
+/* 신청 버튼 */
+.rf-submit-btn {
+	width: 100%;
+	height: 48px;
+	border-radius: 12px;
+	border: none;
+	background: #155c34;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.rf-submit-btn:hover:not(:disabled) {
+	background: #17924c;
+}
+
+.rf-submit-btn:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+}
+
+/* 빈 상태 */
+.rf-empty {
+	text-align: center;
+	color: #777;
+	padding: 48px 20px;
+	background: #f9fafc;
+	border-radius: 12px;
+}

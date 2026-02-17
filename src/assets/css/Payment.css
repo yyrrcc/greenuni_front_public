@@ -1,0 +1,181 @@
+/* Payment.css */
+/* 폰트/컬러는 기존 프로젝트 톤(뉴트럴 + #111827) 맞춤 */
+
+:root {
+	--border-soft: #e5e7eb;
+	--text-main: #111827;
+	--text-sub: #6b7280;
+	--bg: #f8fafc;
+	--card: #ffffff;
+	--shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* 페이지 래퍼 */
+.tuition-page {
+	max-width: 980px;
+	margin: 0 auto;
+	padding: 22px 18px 32px;
+	color: var(--text-main);
+}
+
+.tuition-title {
+	margin: 0 0 10px;
+	font-size: 22px;
+	font-weight: 800;
+	letter-spacing: -0.3px;
+}
+
+.tuition-divider {
+	height: 1px;
+	background: var(--border-soft);
+	margin: 12px 0 18px;
+}
+
+/* 카드 */
+.tuition-card {
+	background: var(--card);
+	border: 1px solid var(--border-soft);
+	border-radius: 18px;
+	box-shadow: var(--shadow);
+	padding: 18px 18px 16px;
+}
+
+/* 학기/상태 바 */
+.tuition-term {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 12px 14px;
+	border: 1px solid var(--border-soft);
+	border-radius: 14px;
+	background: #fbfbfb;
+	font-weight: 800;
+}
+
+.tuition-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 10px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 800;
+	border: 1px solid var(--border-soft);
+	color: var(--text-sub);
+	background: #fff;
+}
+
+.tuition-badge.paid {
+	color: #065f46; /* 진한 그린 느낌(텍스트만) */
+	background: #ecfdf5;
+	border-color: #a7f3d0;
+}
+
+.tuition-badge.unpaid {
+	color: #7c2d12;
+	background: #fff7ed;
+	border-color: #fed7aa;
+}
+
+/* 테이블 */
+.tuition-table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin-top: 14px;
+	overflow: hidden;
+	border: 1px solid var(--border-soft);
+	border-radius: 14px;
+}
+
+.tuition-table th,
+.tuition-table td {
+	padding: 12px 12px;
+	font-size: 14px;
+	border-bottom: 1px solid var(--border-soft);
+	vertical-align: middle;
+}
+
+.tuition-table tr:last-child th,
+.tuition-table tr:last-child td {
+	border-bottom: none;
+}
+
+.tuition-table th {
+	width: 110px;
+	background: #f9fafb;
+	color: var(--text-sub);
+	font-weight: 800;
+	text-align: left;
+}
+
+.tuition-table td {
+	color: var(--text-main);
+	font-weight: 700;
+}
+
+/* 금액 행 강조(원하면 더 깔끔하게 보이도록) */
+.tuition-table td[colspan='3'] {
+	letter-spacing: -0.2px;
+}
+
+.tuition-actions {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 14px;
+	gap: 10px;
+}
+
+/* 버튼 */
+.tuition-btn {
+	appearance: none;
+	border: 1px solid #111827;
+	background: #111827;
+	color: #fff;
+	font-weight: 900;
+	padding: 10px 14px;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: transform 0.05s ease, opacity 0.15s ease;
+}
+
+.tuition-btn:hover {
+	opacity: 0.92;
+}
+
+.tuition-btn:active {
+	transform: translateY(1px);
+}
+
+/* 빈 상태 */
+.tuition-empty {
+	background: var(--card);
+	border: 1px solid var(--border-soft);
+	border-radius: 18px;
+	padding: 18px;
+	color: var(--text-sub);
+	font-weight: 800;
+}
+
+/* 반응형: 모바일에서 th 폭 줄이기 */
+@media (max-width: 520px) {
+	.tuition-page {
+		padding: 18px 14px 26px;
+	}
+
+	.tuition-card {
+		padding: 16px 14px 14px;
+	}
+
+	.tuition-table th {
+		width: 84px;
+		font-size: 13px;
+	}
+
+	.tuition-table th,
+	.tuition-table td {
+		padding: 10px 10px;
+		font-size: 13px;
+	}
+}

@@ -1,0 +1,673 @@
+:root {
+	--green-primary: #2e6130;
+	--green-dark: #1a5c1d;
+	--bg-light: #f9f9f9;
+	--text-dark: #333;
+	--text-gray: #666;
+	--alert-bg: #f1f8e9;
+	--alert-border: #c5e1a5;
+	--alert-text: #33691e;
+
+	--card-border: rgba(15, 23, 42, 0.08);
+	--card-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+	--card-shadow-hover: 0 14px 34px rgba(15, 23, 42, 0.12);
+	--radius-lg: 14px;
+	--radius-md: 12px;
+	--radius-sm: 10px;
+}
+
+.home-container {
+	width: 100%;
+	max-width: 1700px;
+	margin: 0 auto;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+/* --- [1] 상단 배너 섹션 --- */
+.banner-section {
+	width: 100%;
+	height: 350px;
+	margin-bottom: 30px;
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	position: relative;
+	box-shadow: var(--card-shadow);
+	background-color: #eee;
+	border: 1px solid var(--card-border);
+}
+
+.banner-slider {
+	display: flex;
+	height: 100%;
+	transition: transform 0.5s ease-in-out;
+}
+
+.banner-item {
+	min-width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.banner-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	filter: saturate(1.05) contrast(1.02);
+}
+
+.banner-text {
+	position: absolute;
+	bottom: 40px;
+	left: 40px;
+	color: white;
+	text-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+	font-size: 1.85rem;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+}
+
+/* 배너 버튼 */
+.banner-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.82);
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	border-radius: 50%;
+	width: 42px;
+	height: 42px;
+	cursor: pointer;
+	font-size: 18px;
+	z-index: 10;
+	transition: background 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
+	box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+.banner-btn:hover {
+	background: rgba(255, 255, 255, 1);
+	transform: translateY(-50%) scale(1.03);
+}
+.banner-btn:active {
+	transform: translateY(-50%) scale(0.98);
+	box-shadow: none;
+}
+.banner-btn.prev {
+	left: 18px;
+}
+.banner-btn.next {
+	right: 18px;
+}
+
+/* --- [NEW] 찾아오시는길 CTA (배너 아래) --- */
+.portal-direction-cta {
+	margin: -10px 0 18px; /* 배너 아래 살짝 붙는 느낌 */
+}
+
+.portal-direction-card {
+	width: 500px;
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--card-border);
+	background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+	box-shadow: var(--card-shadow);
+	padding: 16px 18px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+
+	transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.portal-direction-card:hover {
+	box-shadow: var(--card-shadow-hover);
+	transform: translateY(-1px);
+}
+
+.portal-direction-left {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.portal-direction-title {
+	font-size: 1.05rem;
+	font-weight: 900;
+	color: #111827;
+	letter-spacing: -0.01em;
+}
+
+.portal-direction-desc {
+	font-size: 0.9rem;
+	color: #6b7280;
+	font-weight: 700;
+}
+
+.portal-direction-btn {
+	border: 1px solid #021b50;
+	background: #021b50;
+	color: #fff;
+	border-radius: 12px;
+	padding: 11px 14px;
+	font-weight: 900;
+	cursor: pointer;
+	transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.2s ease;
+	box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+	white-space: nowrap;
+}
+
+.portal-direction-btn:hover {
+	filter: brightness(1.03);
+	transform: translateY(-1px);
+}
+
+.portal-direction-btn:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* --- [2] 하단 3분할 섹션 --- */
+.bottom-section {
+	display: flex;
+	gap: 20px;
+	/* 카드 높이를 통일하기 위해 설정 */
+	align-items: stretch;
+}
+
+/* 카드 공통 */
+.section-card {
+	flex: 1;
+	background: white;
+	border-radius: var(--radius-lg);
+	padding: 24px;
+	box-shadow: var(--card-shadow);
+	border: 1px solid var(--card-border);
+	display: flex;
+	flex-direction: column;
+	position: relative; /* VIEW MORE 우하단 배치 */
+	transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.section-card:hover {
+	box-shadow: var(--card-shadow-hover);
+}
+
+/* 제목 라인 (더 깔끔하게) */
+.section-title {
+	font-size: 1.1rem;
+	font-weight: 850;
+	margin-bottom: 16px;
+	color: var(--text-dark);
+	border-bottom: 2px solid rgba(76, 175, 80, 0.35);
+	padding-bottom: 10px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	letter-spacing: -0.01em;
+}
+
+/* 카드 내용 영역 (VIEW MORE 때문에 아래 여백 확보) */
+.card-body {
+	flex: 1;
+	padding-bottom: 34px; /* VIEW MORE 버튼 영역 확보 */
+}
+
+/* VIEW MORE 버튼 (공지/학사 공통) */
+.view-more-btn {
+	position: absolute;
+	right: 18px;
+	bottom: 14px;
+
+	border: none;
+	background: transparent;
+	cursor: pointer;
+
+	color: #111827;
+	font-weight: 900;
+	font-size: 0.85rem;
+	letter-spacing: 0.02em;
+
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+
+	padding: 6px 6px;
+	border-radius: 10px;
+	transition: background 0.2s ease, transform 0.12s ease;
+}
+
+.view-more-btn:hover {
+	background: rgba(17, 24, 39, 0.06);
+	transform: translateY(-1px);
+}
+
+.view-more-btn:active {
+	transform: translateY(0);
+}
+
+/* --- 왼쪽: 공지사항 --- */
+.notice-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* 공지 리스트 영역도 스크롤 가능하게(공지 많을 때 대비) */
+.notice-list {
+	max-height: 280px; /* 필요하면 240~340 조절 */
+	overflow: auto;
+	padding-right: 6px; /* 스크롤바 공간 */
+}
+
+.notice-list li {
+	padding: 10px 0;
+	border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+	font-size: 0.95rem;
+	cursor: pointer;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.notice-list li:hover {
+	color: var(--green-dark);
+	transform: translateX(1px);
+	font-weight: 600;
+}
+
+.notice-list li:last-child {
+	border-bottom: none;
+}
+
+/* --- 중앙: 학사일정 --- */
+.calendar-list {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+/* 일정 많을 때: 리스트 영역만 스크롤 */
+.calendar-list {
+	max-height: 280px; /* 필요하면 240~340 조절 */
+	overflow: auto;
+	padding-right: 6px; /* 스크롤바 공간 */
+}
+
+/* 아이템 간 구분선 느낌 */
+.cal-item {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	padding-bottom: 12px;
+	border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+.cal-item:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.cal-date {
+	background: #f3f4f6;
+	padding: 6px 10px;
+	border-radius: 10px;
+	font-weight: 900;
+	color: var(--green-dark);
+	font-size: 0.88rem;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	white-space: nowrap;
+}
+
+.cal-desc {
+	font-size: 0.95rem;
+	color: #1f2937;
+	line-height: 1.35;
+}
+
+/* ===================== */
+/* 학사일정 카드 
+/* ===================== */
+.schedule-list-card {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+
+	/* 일정이 많을 때만 스크롤(원하면 제거 가능) */
+	max-height: 300px;
+	overflow: auto;
+	padding-right: 6px;
+
+	/* VIEW MORE 버튼 공간 확보 */
+	padding-bottom: 34px;
+}
+
+.schedule-row {
+	display: flex;
+	gap: 10px;
+	align-items: flex-start;
+	padding-bottom: 7px;
+	border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.schedule-row:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.schedule-badge {
+	width: 70px;
+	height: 70px;
+	border-radius: 999px;
+	background: #f3f4f6;
+	border: 1px dashed #001e5e;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+}
+
+.badge-month {
+	font-size: 11px;
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	color: #001e5e;
+	opacity: 0.9;
+}
+
+.badge-day {
+	font-size: 27px;
+	font-weight: 900;
+	color: #001e5e;
+	line-height: 1.05;
+}
+
+.schedule-body {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding-top: 6px;
+}
+
+.schedule-title {
+	font-size: 1.05rem;
+	font-weight: 900;
+	color: #111827;
+	letter-spacing: -0.01em;
+}
+
+.schedule-range {
+	font-size: 0.92rem;
+	color: #9ca3af;
+}
+
+/* 빈 상태 */
+.schedule-empty {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	color: #6b7280;
+}
+
+/* --- 오른쪽: 내 정보 카드 --- */
+.my-info-card {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.welcome-msg {
+	font-size: 1.1rem;
+	font-weight: 900;
+	margin-bottom: 18px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: #111827;
+	letter-spacing: -0.01em;
+}
+
+.user-icon {
+	font-size: 1.4rem;
+}
+
+.info-details {
+	font-size: 0.95rem;
+	color: var(--text-dark);
+	margin-bottom: 10px;
+}
+
+.info-row {
+	display: flex;
+	margin-bottom: 12px;
+	align-items: center;
+}
+
+.info-label {
+	width: 70px;
+	color: var(--text-gray);
+	font-weight: 800;
+	font-size: 0.88rem;
+}
+
+.info-value {
+	flex: 1;
+	font-weight: 500;
+	color: #111827;
+}
+
+/* =========================
+   업무/상담 알림 (Staff/Professor) - 리워크
+   ========================= */
+
+/* 알림들이 여러 개 붙을 때 간격 확보 */
+.my-info-card .main--page--info {
+	margin: 10px 0; /* 기존 15px -> 더 촘촘+정돈 */
+}
+
+/* 알림 카드 자체 */
+.main--page--info {
+	padding: 14px 14px;
+	border-radius: 14px;
+	border: 1px solid rgba(15, 23, 42, 0.1);
+	background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+	box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+
+	/* 내부 정렬 */
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+/* 아이콘 + 제목 라인 */
+.main--page--info ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	color: #111827;
+	font-weight: 900;
+	font-size: 0.95rem;
+	letter-spacing: -0.01em;
+}
+
+/* 내용 문장 */
+.main--page--info p {
+	margin: 0;
+	font-size: 0.92rem;
+	color: #374151;
+	line-height: 1.45;
+	font-weight: 700;
+}
+
+/* 링크: 기존 빨강 언더라인이 너무 튀어서 "포탈 톤"으로 */
+.main--page--info a {
+	color: #111827;
+	text-decoration: none;
+	font-weight: 900;
+	cursor: pointer;
+
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+
+	padding: 8px 10px;
+	border-radius: 12px;
+	border: 1px solid rgba(15, 23, 42, 0.1);
+	background: #f9fafb;
+
+	transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.main--page--info a:hover {
+	background: rgba(17, 24, 39, 0.06);
+	border-color: rgba(15, 23, 42, 0.16);
+	transform: translateY(-1px);
+	box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+}
+
+.main--page--info a:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* (선택) 링크 끝에 화살표 느낌 */
+.main--page--info a::after {
+	content: '›';
+	font-size: 18px;
+	line-height: 1;
+	opacity: 0.7;
+	margin-left: auto;
+}
+
+/* 혹시 empty가 남아있어도 너무 커 보이지 않게 */
+.main--page--info.empty {
+	background: #ffffff;
+	border-style: dashed;
+	opacity: 0.85;
+}
+
+/* 알림 카드가 연속으로 2개 이상 나올 때 "붙어 보임" 방지 */
+.my-info-card > div > .main--page--info + .main--page--info {
+	margin-top: 12px;
+}
+
+/* 버튼 영역 */
+.info-actions {
+	display: flex;
+	gap: 10px;
+	margin-top: auto; /* 하단 고정 */
+}
+
+/* ✅ 숫자(건수)만 강조: 배지 스타일 */
+.main--page--info .count-bold {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	min-width: 26px;
+	height: 22px;
+	padding: 0 8px;
+
+	border-radius: 999px;
+
+	/* 빨강 너무 쨍하지 않게 */
+	color: #b91c1c; /* red-700 느낌 */
+	background: rgba(239, 68, 68, 0.1);
+	border: 1px solid rgba(239, 68, 68, 0.25);
+
+	font-weight: 900;
+	font-size: 0.95rem;
+	line-height: 1;
+
+	/* 글자 주변만 살짝 강조 */
+	box-shadow: 0 6px 14px rgba(239, 68, 68, 0.1);
+}
+
+/* ✅ 링크 hover 시 숫자 배지도 살짝 살아나게 */
+.main--page--info a:hover .count-bold {
+	background: rgba(239, 68, 68, 0.14);
+	border-color: rgba(239, 68, 68, 0.32);
+	transform: translateY(-0.5px);
+	transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+}
+
+.action-btn {
+	flex: 1;
+	padding: 12px;
+	border: none;
+	border-radius: 12px;
+	background-color: #8fa1b3; /* 파스텔 블루 그레이 */
+	color: white;
+	font-weight: 900;
+	font-size: 0.95rem;
+	cursor: pointer;
+	transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.2s ease;
+	box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+}
+
+.action-btn:hover {
+	filter: brightness(1.04);
+	transform: translateY(-1px);
+}
+
+.action-btn:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+.action-btn.logout {
+	background-color: #9e9e9e;
+} /* 회색 */
+
+.action-btn.logout:hover {
+	filter: brightness(0.97);
+}
+
+/* 로그인 안내 */
+.login-guide {
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto;
+	color: #666;
+}
+
+/* ✅ 스크롤바(웹킷) 살짝 정리 - 선택사항 */
+.notice-list::-webkit-scrollbar,
+.calendar-list::-webkit-scrollbar {
+	width: 8px;
+}
+
+.notice-list::-webkit-scrollbar-thumb,
+.calendar-list::-webkit-scrollbar-thumb {
+	background: rgba(15, 23, 42, 0.12);
+	border-radius: 999px;
+}
+
+.notice-list::-webkit-scrollbar-track,
+.calendar-list::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* 반응형(간단) */
+@media (max-width: 1024px) {
+	.bottom-section {
+		flex-direction: column;
+	}
+	.banner-section {
+		height: 300px;
+	}
+	.portal-direction-card {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.portal-direction-btn {
+		width: 100%;
+	}
+}

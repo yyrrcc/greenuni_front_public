@@ -1,0 +1,228 @@
+/* MyPageInfoTable.css */
+
+/* 디자인 토큰 */
+:root {
+	--mypage-bg: #f9fafb;
+	--mypage-card: #ffffff;
+	--mypage-text: #111827;
+	--mypage-muted: rgba(17, 24, 39, 0.62);
+	--mypage-border: #e5e7eb;
+	--mypage-soft: rgba(15, 23, 42, 0.06);
+	--mypage-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+
+	--mypage-radius-lg: 16px;
+	--mypage-radius-md: 12px;
+
+	--mypage-focus: rgba(17, 24, 39, 0.18);
+}
+
+/* 카드 컨테이너 */
+.mypage-card {
+	background: var(--mypage-card);
+	border: 1px solid var(--mypage-border);
+	border-radius: var(--mypage-radius-lg);
+	box-shadow: var(--mypage-shadow);
+	overflow: hidden;
+}
+
+/* 헤더 */
+.mypage-card__header {
+	padding: 18px 18px 14px;
+	border-bottom: 1px solid var(--mypage-border);
+	background: linear-gradient(180deg, rgba(17, 24, 39, 0.02), rgba(17, 24, 39, 0));
+}
+
+.mypage-card__title {
+	margin: 0;
+	font-size: 18px;
+	line-height: 1.2;
+	letter-spacing: -0.2px;
+	color: var(--mypage-text);
+	font-weight: 900;
+}
+
+.mypage-card__sub {
+	margin: 6px 0 0;
+	color: var(--mypage-muted);
+	font-size: 13px;
+	line-height: 1.35;
+}
+
+/* 본문 */
+.mypage-card__body {
+	padding: 16px 18px 18px;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+/* 테이블 래퍼 */
+.mypage-table {
+	border: 1px solid var(--mypage-border);
+	border-radius: var(--mypage-radius-md);
+	overflow: hidden;
+	background: #fff;
+}
+
+.mypage-table__table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.mypage-table__th,
+.mypage-table__td {
+	padding: 12px 12px;
+	border-bottom: 1px solid var(--mypage-border);
+	vertical-align: middle;
+}
+
+.mypage-table__th {
+	width: 140px;
+	background: rgba(17, 24, 39, 0.03);
+	color: rgba(17, 24, 39, 0.78);
+	font-weight: 900;
+	font-size: 13px;
+	letter-spacing: -0.1px;
+}
+
+.mypage-table__td {
+	color: var(--mypage-text);
+	font-size: 14px;
+	word-break: break-word;
+}
+
+.mypage-table__table tr:last-child .mypage-table__th,
+.mypage-table__table tr:last-child .mypage-table__td {
+	border-bottom: 0;
+}
+
+/* compact */
+.mypage-table--compact .mypage-table__th,
+.mypage-table--compact .mypage-table__td {
+	padding: 10px 12px;
+}
+
+/* 소속 chip */
+.mypage-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 10px;
+	border-radius: 999px;
+	border: 1px solid var(--mypage-border);
+	background: rgba(17, 24, 39, 0.02);
+	font-size: 12px;
+	font-weight: 800;
+	color: rgba(17, 24, 39, 0.82);
+	margin-right: 8px;
+	margin-bottom: 6px;
+}
+
+/* 섹션 (DataTable 위) */
+.mypage-section {
+	border: 1px solid var(--mypage-border);
+	border-radius: var(--mypage-radius-md);
+	background: #fff;
+	overflow: hidden;
+}
+
+.mypage-section__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 14px;
+	border-bottom: 1px solid var(--mypage-border);
+	background: rgba(17, 24, 39, 0.02);
+}
+
+.mypage-section__title {
+	margin: 0,0,0,15px;
+	font-size: 14px;
+	font-weight: 900;
+	color: var(--mypage-text);
+	letter-spacing: -0.15px;
+}
+
+.mypage-section__body {
+	padding: 12px 12px 14px;
+}
+
+.mypage-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 26px;
+	height: 22px;
+	padding: 0 8px;
+	border-radius: 999px;
+	border: 1px solid var(--mypage-border);
+	background: #fff;
+	color: rgba(17, 24, 39, 0.8);
+	font-size: 12px;
+	font-weight: 900;
+}
+
+/* 역할별 포인트 라인(과하지 않게) */
+.mypage-card--student .mypage-card__header {
+	box-shadow: inset 0 3px 0 rgba(21, 128, 61, 0.30);
+}
+.mypage-card--professor .mypage-card__header {
+	box-shadow: inset 0 3px 0 rgba(37, 99, 235, 0.22);
+}
+.mypage-card--staff .mypage-card__header {
+	box-shadow: inset 0 3px 0 rgba(17, 24, 39, 0.22);
+}
+
+
+.mypage-card__header,
+.mypage-card--student .mypage-card__header,
+.mypage-card--professor .mypage-card__header,
+.mypage-card--staff .mypage-card__header {
+	box-shadow: none !important;
+}
+
+.mypage-footerbar {
+	margin-top: 14px;
+	font-weight: 600;
+	display: flex;
+	justify-content: flex-end; /* ✅ 오른쪽 정렬 */
+	padding-top: 12px;
+	border-top: 1px solid #e5e7eb;
+}
+
+
+
+/* 반응형: 모바일에서 2열 테이블 깨짐 방지 */
+@media (max-width: 720px) {
+	.mypage-table__table,
+	.mypage-table__table tbody,
+	.mypage-table__table tr {
+		display: block;
+	}
+
+	.mypage-table__table tr {
+		border-bottom: 1px solid var(--mypage-border);
+	}
+
+	.mypage-table__table tr:last-child {
+		border-bottom: 0;
+	}
+
+	.mypage-table__th,
+	.mypage-table__td {
+		display: block;
+		width: 100%;
+		border-bottom: 0;
+		padding: 10px 12px;
+	}
+
+	.mypage-table__th {
+		border-top: 1px solid var(--mypage-border);
+		background: rgba(17, 24, 39, 0.03);
+	}
+
+	.mypage-chip {
+		margin-bottom: 8px;
+	}
+}

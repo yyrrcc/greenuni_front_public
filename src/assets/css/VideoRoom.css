@@ -1,0 +1,82 @@
+.video-room {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #111;
+}
+
+/* 상단 */
+.video-header {
+  height: 48px;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.video-header .status {
+  color: #4f7df3;
+  font-weight: 600;
+}
+
+.video-header .timer {
+  font-weight: 600;
+}
+
+/* 영상 영역 */
+.video-area {
+  flex: 1;
+  display: flex;
+}
+
+.video-box {
+  flex: 1;
+  position: relative;
+  background: #000;
+}
+
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-box .label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* 하단 컨트롤 */
+.video-controls {
+  height: 64px;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.video-controls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.video-controls button.end {
+  width: auto;
+  padding: 0 20px;
+  border-radius: 22px;
+  background: #e74c3c;
+  color: #fff;
+}

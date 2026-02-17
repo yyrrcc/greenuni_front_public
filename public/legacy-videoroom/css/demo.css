@@ -1,0 +1,35 @@
+/* public/legacy-videoroom/css/demo.css */
+
+body {
+	font-family: Pretendard, 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+	background: #f3f4f6;
+}
+
+.page-header h1 {
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.panel {
+	border-radius: 14px;
+	overflow: hidden;
+	border: 1px solid #e5e7eb;
+	box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.panel-heading {
+	background: #fff !important;
+	border-bottom: 1px solid #e5e7eb !important;
+}
+
+.panel-title {
+	color: #111827;
+	font-weight: 700;
+}
+
+#videolocal,
+[id^='videoremote'] {
+	background: #111;
+	border-radius: 12px;
+	min-height: 260px;
+}

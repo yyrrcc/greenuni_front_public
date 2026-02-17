@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<!-- favicon 수정하는 곳 -->
+		<link rel="icon" type="image/svg+xml" href="/greenlogo.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>그린대학교</title>
+
+		<!-- bootbox -->
+		<script src="https://cdn.jsdelivr.net/npm/bootbox@5.5.2/bootbox.min.js"></script>
+
+		<!-- toastr -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+
+		<!-- spin.js (Spinner) -->
+		<script src="https://cdn.jsdelivr.net/npm/spin.js@4.1.1/spin.umd.js"></script>
+
+		<!-- Janus
+    	 여기만은 보통 CDN이 애매해서, 프로젝트에 janus.js를 두는 걸 추천 -->
+		<script src="/legacy/vendor/janus.js"></script>
+
+		<!-- legacy 파일 -->
+		<script src="/legacy/videoroom.js"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="module" src="/src/main.jsx"></script>
+	</body>
+	<!-- Kakao roughmap loader (퍼가기) : 반드시 정적으로 넣기 -->
+	<script charset="UTF-8" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+</html>

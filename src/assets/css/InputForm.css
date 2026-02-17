@@ -1,0 +1,74 @@
+/* InputForm.css */
+.input-group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-bottom: 16px;
+}
+
+.input-group label {
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-sub);
+}
+
+.input-group label {
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-sub);
+}
+
+/* 포털 로그인 인풋 느낌 */
+.form-input {
+	width: 90%;
+	padding: 10px 14px;
+	border-radius: 15px;
+	border: 1px solid rgb(125, 146, 120);
+	background-color: #f9fafb;
+	font-size: 14px;
+	color: var(--text-main);
+	outline: none;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.form-input::placeholder {
+	color: #a0aec0;
+}
+
+.form-input:focus {
+	background-color: #ffffff;
+	border-color: var(--primary-green);
+	box-shadow: 0 0 0 1px rgba(0, 104, 56, 0.2);
+}
+
+/* 에러 상태 고려 */
+.form-input--error {
+	border-color: #e11d48;
+	box-shadow: 0 0 0 1px rgba(225, 29, 72, 0.18);
+}
+
+.form-input--sm {
+	padding: 8px 12px;
+	font-size: 13px;
+}
+
+.form-input--lg {
+	padding: 12px 18px;
+	font-size: 15px;
+}
+
+/* 인풋 + 버튼 한 줄로 쓰고 싶을 때 */
+.input-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.input-row .input-group {
+	flex: 1;
+	margin-bottom: 0;
+}

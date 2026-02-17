@@ -1,0 +1,117 @@
+/* DataTable.css (Stable) */
+
+.data-table-wrapper {
+	/* ✅ 내부는 세로로만 쌓이게 */
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	background: var(--card-bg);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-light);
+	padding: 18px 20px;
+	border: 1px solid rgba(15, 23, 42, 0.03);
+}
+
+.data-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+	color: var(--text-main);
+}
+
+.data-table thead {
+	background: linear-gradient(90deg, #006838 0%, #155c34 55%, #1a5727 100%);
+}
+
+.data-table th {
+	padding: 11px 14px;
+	text-align: left;
+	font-weight: 700;
+	font-size: 13px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #e5fdf4;
+	border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+	white-space: nowrap;
+}
+
+.data-table tbody tr {
+	background-color: #ffffff;
+	transition: background-color 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.data-table td {
+	padding: 10px 14px;
+	border-bottom: 1px solid #edf2f7;
+	vertical-align: middle;
+}
+
+.data-table tbody tr:nth-child(even) {
+	background-color: #f9fbf9;
+}
+
+.data-table tbody tr:hover {
+	background-color: #f1fbf6;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+}
+
+.data-table tbody tr:hover td:first-child {
+	background-color: #f3ecec;
+}
+
+.data-table tbody tr.rowClick {
+	cursor: pointer;
+}
+
+.data-table--compact-id th:first-child,
+.data-table--compact-id td:first-child {
+	width: 60px;
+	text-align: center;
+}
+
+.cell-right {
+	text-align: right;
+}
+.cell-center {
+	text-align: center;
+}
+
+.action-btn {
+	padding: 6px 12px;
+	border: 1.3px solid #444444d0;
+	background-color: #15803d;
+	color: white;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 13px;
+	transition: background-color 0.2s, transform 0.08s;
+}
+
+.action-btn:hover {
+	background-color: #2b492e;
+}
+.action-btn:active {
+	transform: scale(0.98);
+}
+.action-btn:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+
+.form-container.schedule-page.schedule-list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+@media (max-width: 720px) {
+	.data-table-wrapper {
+		padding: 14px;
+	}
+	.data-table th,
+	.data-table td {
+		padding: 10px 10px;
+	}
+}

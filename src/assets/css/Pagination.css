@@ -1,0 +1,105 @@
+/* PaginationForm.css */
+/* 프로젝트 톤: neutral + #111827 포인트 */
+
+.pagination-bar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+
+	width: 100%;
+	padding: 18px 0 6px;
+}
+
+/* 숫자 영역도 살짝 분리해서 간격 정돈 */
+.pagination-numbers {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+/* 공통 버튼 */
+.pagination-btn {
+	font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	color: #271120;
+
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius: 999px;
+
+	height: 34px;
+	min-width: 34px;
+	padding: 0 8px;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.06s ease;
+}
+
+/* 숫자 버튼은 완전 원형 느낌 */
+.pagination-btn--num {
+	width: 34px;
+	padding: 0;
+}
+
+/* 네비 버튼(« «« » »»)은 폭 살짝 넉넉하게 */
+.pagination-btn--nav {
+	min-width: 36px;
+}
+
+/* 호버 */
+.pagination-btn:hover:not(:disabled) {
+	background: #f3f4f6;
+	border-color: #e5e7eb;
+}
+
+/* 클릭 */
+.pagination-btn:active:not(:disabled) {
+	transform: translateY(1px);
+}
+
+/* 활성 페이지 */
+.pagination-btn.is-active {
+	background: #111827;
+	border-color: #111827;
+	color: #ffffff;
+}
+
+/* 비활성 */
+.pagination-btn:disabled {
+	opacity: 0.35;
+	cursor: not-allowed;
+}
+
+/* 키보드 포커스 */
+.pagination-btn:focus-visible {
+	outline: none;
+	border-color: #111827;
+	box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.14);
+}
+
+/* 모바일 */
+@media (max-width: 480px) {
+	.pagination-bar {
+		gap: 8px;
+	}
+
+	.pagination-numbers {
+		gap: 6px;
+	}
+
+	.pagination-btn {
+		height: 32px;
+		min-width: 32px;
+		font-size: 12.5px;
+	}
+
+	.pagination-btn--num {
+		width: 32px;
+	}
+}

@@ -1,0 +1,33 @@
+/* SubjectSelect.css */
+
+.subject-select-wrap {
+	margin-bottom: 20px;
+}
+
+.subject-select-label {
+	display: block;
+	font-size: 15px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.subject-select {
+	width: 100%;
+	padding: 12px 14px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	font-size: 14px;
+	background: #fff;
+	cursor: pointer;
+	transition: border-color 0.2s;
+}
+
+.subject-select:focus {
+	outline: none;
+	border-color: #5b8def;
+}
+
+.subject-select option {
+	padding: 10px;
+}

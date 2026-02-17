@@ -1,0 +1,124 @@
+/* =========================
+   PortalLayout.css (clean)
+   - Header/Navigation/Footer 유지
+   - main-container: max-width로 가운데 정렬 + gap
+   - content: 카드형(화이트 + 라운드 + 보더 + 섀도우)
+========================= */
+
+:root {
+	/* 레이아웃 */
+	--layout-max: 1700px; /* 메인 컨텐츠 1300~1400px 감안 */
+	--layout-pad: 24px;
+	--layout-gap: 60px;
+
+	/* 헤더 높이(Header sticky top 계산용) */
+	--header-h: 104px;
+
+	/* 토큰 */
+	--page-bg: #f8fafc;
+	--card-bg: #ffffff;
+	--border-soft: rgba(15, 23, 42, 0.1);
+	--shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.06);
+	--radius-lg: 16px;
+
+	font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+/* 전체 레이아웃(로그인 후) */
+.portal-layout {
+	min-height: 100vh;
+	background: var(--page-bg);
+	display: flex;
+	flex-direction: column;
+}
+
+/* 사이드바 + 메인 컨텐츠 컨테이너 */
+.main-container {
+	flex: 1;
+	width: 100%;
+
+	/* ✅ 핵심: 화면 중앙으로 모으기 */
+	max-width: var(--layout-max);
+	margin: 0 auto;
+
+	/* 헤더 아래 여백 */
+	padding: 18px 24px 60px 1px;
+	display: flex;
+	gap: var(--layout-gap);
+	align-items: flex-start;
+
+	/* 내부 스크롤은 content에서 처리 */
+	overflow: hidden;
+}
+
+/* ✅ 사이드바 없는 경우(포탈 홈 등) */
+.main-container.no-sidebar {
+	justify-content: center;
+}
+
+/* 메인 컨텐츠 영역 */
+.content {
+	flex: 1;
+	min-width: 0;
+
+	/* 카드 느낌 */
+	background: var(--card-bg);
+	border: 1px solid fffff;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-soft);
+
+	/* 내부 패딩 */
+	padding: 22px 24px;
+
+	/* 컨텐츠 많을 때 스크롤 */
+	overflow-y: auto;
+
+	/* Header 제외 높이 확보(footer는 아래로 밀림) */
+	min-height: calc(100vh - var(--header-h) - 60px);
+}
+
+/* Footer */
+.portal-footer {
+	background: #fff;
+	border-top: 1px solid var(--border-soft);
+	color: #111827;
+	padding: 16px 28px;
+	text-align: center;
+	font-size: 12px;
+}
+
+/* ✅ /portal(대문)만 더 넓게 */
+.portal-layout.portal-home .main-container {
+	max-width: 1900px; /* 1440보다 넓게 (원하면 1760/1920도 가능) */
+	padding-left: 24px;
+	border: #fff;
+	padding-right: 24px;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 1024px) {
+	:root {
+		--layout-pad: 16px;
+		--layout-gap: 18px;
+	}
+
+	.content {
+		padding: 18px 18px;
+	}
+}
+
+@media (max-width: 768px) {
+	.main-container {
+		padding: 14px 14px 44px;
+	}
+
+	/* Navigation.css에서 sidebar display:none 처리 중이면
+	   여기선 content만 자연스럽게 풀로 사용 */
+	.content {
+		border-radius: 14px;
+		padding: 16px;
+	}
+}

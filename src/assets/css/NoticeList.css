@@ -1,0 +1,186 @@
+:root {
+	--primary-green: #15803d;
+	--primary-green-dark: #0f6b3a;
+	--border-soft: #e5e7eb;
+	--text-main: #111827;
+	--text-sub: #6b7280;
+}
+
+.notice-search-bar {
+	display: grid;
+	grid-template-columns: 110px 1fr auto;
+	gap: 10px;
+	align-items: center;
+
+	padding: 12px 12px;
+	margin-bottom: 16px;
+
+	background: #f9fafb;
+	border: 1px solid var(--border-soft);
+	border-radius: 14px;
+}
+
+.notice-search-type {
+	width: 110px;
+	max-width: 110px;
+	padding: 9px 10px;
+	border-radius: 12px;
+	font-size: 12.5px;
+	font-weight: 700;
+}
+
+.notice-search-input {
+	min-width: 0; /* grid에서 overflow 방지 */
+}
+
+/* 검색 영역에선 InputForm 기본 margin/label 영향 제거 */
+.notice-search-input .input-group {
+	margin-bottom: 0;
+}
+.notice-search-input .input-group label {
+	display: none;
+}
+
+/* 주황 영역 인풋이 가득 차게 */
+.notice-search-input .form-input {
+	width: 98%;
+	min-width: 240px;
+}
+
+/* 보라 영역: 버튼 나란히 */
+.notice-search-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	white-space: nowrap;
+}
+
+/* 검색/초기화 버튼 톤 유지 */
+.notice-search-actions .button {
+	border-radius: 12px;
+	padding: 9px 12px;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+/* submit = 메인 */
+.notice-search-actions .button[type='submit'] {
+	border: none;
+	color: #ffffff;
+	background: linear-gradient(90deg, var(--primary-green), var(--primary-green-dark));
+	box-shadow: 0 10px 22px rgba(22, 163, 74, 0.22);
+}
+.notice-search-actions .button[type='submit']:hover {
+	filter: brightness(1.03);
+	transform: translateY(-1px);
+	box-shadow: 0 14px 28px rgba(22, 163, 74, 0.32);
+}
+
+/* reset = 서브 */
+.notice-search-actions .button[type='button'] {
+	background: #ffffff;
+	border: 1px solid var(--border-soft);
+	color: var(--text-main);
+}
+.notice-search-actions .button[type='button']:hover {
+	background: #f3f4f6;
+	border-color: #d1d5db;
+}
+
+/* ===== 페이징: 가운데 + 등록 오른쪽 ===== */
+.paging--container {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+
+	margin-top: 18px;
+	padding-top: 14px;
+	border-top: 1px solid #eef2f7;
+}
+
+/* 페이지 버튼을 중앙으로 */
+.paging-pages {
+	justify-self: center;
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+/* 페이지 버튼 기본 */
+.paging-pages .button {
+	background: #ffffff;
+	border: 1px solid var(--border-soft);
+	color: var(--text-main);
+
+	border-radius: 10px;
+	padding: 8px 11px;
+	font-size: 12px;
+	font-weight: 600;
+
+	cursor: pointer;
+	transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.06s ease;
+}
+.paging-pages .button:hover {
+	background: #f9fafb;
+	border-color: #d1d5db;
+	transform: translateY(-1px);
+}
+
+/* active 페이지 */
+.paging-pages .page-btn.active {
+	border-color: rgba(21, 128, 61, 0.45);
+	background: rgba(21, 128, 61, 0.08);
+	color: var(--primary-green);
+	font-weight: 800;
+	box-shadow: 0 6px 14px rgba(22, 163, 74, 0.12);
+}
+
+/* 등록 버튼 오른쪽 고정 */
+.register-btn {
+	justify-self: end;
+
+	border: none;
+	color: #ffffff;
+	background: linear-gradient(90deg, var(--primary-green), var(--primary-green-dark));
+	box-shadow: 0 10px 22px rgba(22, 163, 74, 0.22);
+
+	border-radius: 10px;
+	padding: 9px 12px;
+	font-size: 12px;
+	font-weight: 800;
+}
+
+.register-btn:hover {
+	filter: brightness(1.03);
+	transform: translateY(-1px);
+	box-shadow: 0 14px 28px rgba(22, 163, 74, 0.32);
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+	.notice-search-bar {
+		grid-template-columns: 1fr; /* 모바일에서 세로로 */
+	}
+
+	.notice-search-type {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.notice-search-actions {
+		justify-content: flex-end;
+	}
+
+	.paging--container {
+		grid-template-columns: 1fr; /* 모바일에서는 등록도 아래로 */
+		gap: 10px;
+	}
+
+	.paging-pages {
+		justify-self: start;
+	}
+
+	.register-btn {
+		justify-self: end;
+	}
+}

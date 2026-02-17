@@ -1,0 +1,62 @@
+/* fallback vars (전역에 있으면 이 블록은 무시돼도 OK) */
+:root {
+	--primary-green: #15803d;
+	--primary-green-dark: #0f6b3a;
+	--border-soft: #e5e7eb;
+	--text-main: #111827;
+	--text-sub: #6b7280;
+}
+
+/* 리스트 페이지 전체 톤 정리 */
+.schedule-page.schedule-list {
+	/* form-container가 이미 있다면 과하게 건드리지 않음 */
+}
+
+/* DataTable 위/아래 여백 정돈 */
+.schedule-page.schedule-list .split--div {
+	margin-bottom: 18px;
+}
+
+/* 리스트 하단 액션 영역 */
+.schedule-list-actions {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 14px;
+}
+
+/* 등록 버튼: 기존 button 스타일 기반으로 가볍게만 보강 */
+.schedule-register-btn {
+	border: none;
+	border-radius: 12px;
+	padding: 10px 14px;
+
+	font-size: 12.5px;
+	font-weight: 700;
+
+	color: #ffffff;
+	background: linear-gradient(90deg, var(--primary-green), var(--primary-green-dark));
+	box-shadow: 0 10px 22px rgba(22, 163, 74, 0.22);
+
+	transition: transform 0.06s ease, box-shadow 0.18s ease, filter 0.12s ease;
+}
+
+.schedule-register-btn:hover {
+	filter: brightness(1.03);
+	transform: translateY(-1px);
+	box-shadow: 0 14px 30px rgba(22, 163, 74, 0.32);
+}
+
+.schedule-register-btn:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+	.schedule-list-actions {
+		justify-content: stretch;
+	}
+	.schedule-register-btn {
+		width: 100%;
+	}
+}

@@ -1,0 +1,21 @@
+/* 페이지 타이틀 */
+.form-container > h3 {
+	font-size: 22px;
+	font-weight: 800;
+	letter-spacing: -0.3px;
+	margin: 0 0 10px;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+
+/* 타이틀 앞 그린 포인트 바 */
+.form-container > h3::before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	border-radius: 999px;
+	background: var(--primary-green);
+	box-shadow: 0 0 0 4px var(--green-soft);
+	display: inline-block;
+}

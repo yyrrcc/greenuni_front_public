@@ -1,0 +1,181 @@
+/* src/assets/css/Schedule.css */
+/* 공통: 페이지 래퍼 */
+.schedule-page,
+.form-container.schedule-page {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 24px 16px;
+}
+
+/* 로딩/권한없음 카드 */
+.schedule-card-wrapper,
+.schedule-page .schedule-card-wrapper {
+	width: 100%;
+	max-width: 980px;
+	margin: 0 auto;
+	padding: 24px 16px;
+}
+
+.schedule-empty-card {
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	padding: 18px;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+	color: #111827;
+}
+
+/* 권한 없음 화면 */
+.schedule-deny {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	align-items: flex-start;
+	justify-content: center;
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	padding: 18px;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* 공통 버튼 */
+.schedule-btn,
+.form-container .button,
+.form-container .btn,
+.form-container button.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	padding: 0 14px;
+	border-radius: 12px;
+	border: 1px solid #111827;
+	background: #111827;
+	color: #ffffff;
+	font-weight: 700;
+	cursor: pointer;
+	transition: 0.15s ease;
+	white-space: nowrap;
+}
+
+.schedule-btn:hover,
+.form-container .button:hover,
+.form-container .btn:hover,
+.form-container button.button:hover {
+	transform: translateY(-1px);
+	opacity: 0.96;
+}
+
+/* 보조 버튼(취소/뒤로 등) */
+.schedule-btn--ghost {
+	border: 1px solid #e5e7eb;
+	background: #ffffff;
+	color: #111827;
+}
+
+.schedule-btn--ghost:hover {
+	background: #f9fafb;
+}
+
+/* 에러 메시지 */
+.error-message {
+	margin-top: 12px;
+	padding: 12px 14px;
+	border: 1px solid #fecaca;
+	background: #fff1f2;
+	color: #991b1b;
+	border-radius: 12px;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+/* ScheduleForm 내부에서 쓸 수 있는 공통 카드 */
+.schedule-form-card {
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	padding: 18px;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* 폼 타이틀 */
+.schedule-form-title {
+	font-size: 20px;
+	font-weight: 800;
+	color: #111827;
+	margin: 0 0 14px 0;
+}
+
+/* 폼 행 */
+.schedule-form-row {
+	display: grid;
+	grid-template-columns: 140px 1fr;
+	gap: 12px;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+@media (max-width: 640px) {
+	.schedule-form-row {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* 라벨 */
+.schedule-form-label {
+	font-size: 14px;
+	font-weight: 700;
+	color: #111827;
+}
+
+/* 인풋/텍스트 영역 */
+.schedule-input,
+.schedule-textarea,
+.schedule-form-card input[type='text'],
+.schedule-form-card input[type='date'],
+.schedule-form-card textarea {
+	width: 100%;
+	height: 40px;
+	padding: 0 12px;
+	border-radius: 12px;
+	border: 1px solid #e5e7eb;
+	background: #ffffff;
+	color: #111827;
+	outline: none;
+	transition: 0.15s ease;
+}
+
+.schedule-form-card textarea,
+.schedule-textarea {
+	height: 120px;
+	padding: 12px;
+	resize: vertical;
+	line-height: 1.5;
+}
+
+.schedule-input:focus,
+.schedule-textarea:focus,
+.schedule-form-card input:focus,
+.schedule-form-card textarea:focus {
+	border-color: #111827;
+	box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+}
+
+/* 버튼 영역 */
+.schedule-form-actions {
+	display: flex;
+	gap: 10px;
+	margin-top: 14px;
+	justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+	.schedule-form-actions {
+		justify-content: stretch;
+	}
+	.schedule-form-actions button {
+		flex: 1;
+	}
+}

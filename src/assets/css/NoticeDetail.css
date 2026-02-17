@@ -1,0 +1,240 @@
+:root {
+	--primary-green: #15803d;
+	--primary-green-dark: #0f6b3a;
+	--border-soft: #e5e7eb;
+	--text-main: #111827;
+	--text-sub: #6b7280;
+}
+
+/* =========================
+   레이아웃/타이틀
+========================= */
+
+.notice-detail {
+	width: 100%;
+	background: #ffffff;
+	border: 1px solid var(--border-soft);
+	border-radius: 18px;
+	padding: 22px 24px;
+	box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.notice-detail > h3 {
+	font-size: 18px;
+	font-weight: 800;
+	color: var(--text-main);
+	margin: 0 0 8px 0;
+	letter-spacing: 0.02em;
+}
+
+.notice-detail .split--div {
+	width: 100%;
+	height: 1px;
+	background: #eef2f7;
+	margin: 10px 0 18px 0;
+}
+
+/* =========================
+   상세 테이블
+========================= */
+
+.notice-detail .table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	overflow: hidden;
+
+	border: 1px solid var(--border-soft);
+	border-radius: 14px;
+	background: #ffffff;
+}
+
+/* 행 구분선 */
+.notice-detail .table tr + tr td {
+	border-top: 1px solid #f1f5f9;
+}
+
+/* 좌측 라벨 셀 */
+.notice-detail .table .type {
+	width: 120px;
+	min-width: 100px;
+
+	background: #f9fafb;
+	color: var(--text-sub);
+
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+
+	padding: 12px 14px;
+	vertical-align: top;
+
+	border-right: 1px solid #f1f5f9;
+}
+
+/* 우측 값 셀 */
+.notice-detail .table td:not(.type) {
+	padding: 12px 16px;
+	font-size: 13.5px;
+	color: var(--text-main);
+	line-height: 1.55;
+}
+
+/* 제목 줄 강조 */
+.notice-detail .table tr.title td:not(.type) {
+	font-size: 15px;
+	font-weight: 800;
+}
+
+/* 제목 줄에서 말머리 강조 느낌 */
+.notice-detail .table tr.title td:not(.type) {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.notice-detail .table tr.title td:not(.type) > span.category-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 8px;
+	border-radius: 999px;
+	font-size: 10.5px;
+	font-weight: 800;
+	color: var(--primary-green);
+	background: rgba(21, 128, 61, 0.08);
+	border: 1px solid rgba(21, 128, 61, 0.18);
+}
+
+/* 내용 영역 */
+.notice-detail .content--container td:not(.type) {
+	padding-top: 16px;
+	padding-bottom: 18px;
+}
+
+/* dangerouslySetInnerHTML 영역 기본 타이포 */
+.notice-detail .content--container div {
+	font-size: 13.5px;
+	line-height: 1.7;
+	color: #0f172a;
+	white-space: normal;
+	word-break: break-word;
+}
+
+/* 첨부파일 */
+/* ✅ 변경(선택): 첨부파일 영역만 깔끔하게 */
+.notice-file-block {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.notice-file-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.notice-file-name {
+	font-weight: 600;
+}
+
+.notice-file-preview img {
+	max-width: 320px;
+	border-radius: 10px;
+	border: 1px solid #e5e7eb;
+}
+
+.notice-file-empty {
+	color: #6b7280;
+}
+
+/* =========================
+   하단 버튼 영역
+========================= */
+
+.notice-detail .select--button {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 16px;
+	padding-top: 14px;
+	border-top: 1px solid #eef2f7;
+}
+
+/* 기본 버튼 톤(리스트/폼과 통일) */
+.notice-detail .select--button .button {
+	border-radius: 12px;
+	padding: 10px 14px;
+	font-size: 12.5px;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	cursor: pointer;
+
+	background: #ffffff;
+	border: 1px solid var(--border-soft);
+	color: var(--text-main);
+
+	transition: transform 0.06s ease, box-shadow 0.18s ease, filter 0.12s ease, background-color 0.15s ease,
+		border-color 0.15s ease;
+}
+
+.notice-detail .select--button .button:hover {
+	background: #f9fafb;
+	border-color: #d1d5db;
+	transform: translateY(-1px);
+}
+
+/* 목록 버튼은 은은하게 */
+.notice-detail .select--button .button:first-child {
+	margin-right: auto; /* ✅ '목록'은 왼쪽, 수정/삭제는 오른쪽 느낌 */
+}
+
+/* staff 액션 버튼 조금 강조 */
+.notice-detail .select--button .button:nth-child(2) {
+	border-color: rgba(21, 128, 61, 0.25);
+}
+
+/* 삭제 버튼만 위험 컬러 살짝 */
+.notice-detail .select--button .button:last-child {
+	border-color: rgba(225, 29, 72, 0.25);
+	color: #be123c;
+}
+
+.notice-detail .select--button .button:last-child:hover {
+	background: rgba(225, 29, 72, 0.06);
+	border-color: rgba(225, 29, 72, 0.45);
+}
+
+.notice-detail .table tr.content--container {
+	display: table-row !important;
+}
+
+.notice-detail .table tr.content--container > td {
+	display: table-cell !important;
+	vertical-align: top;
+}
+
+/* =========================
+   반응형
+========================= */
+
+@media (max-width: 768px) {
+	.notice-detail {
+		padding: 18px 18px;
+	}
+
+	.notice-detail .table .type {
+		width: 92px;
+		font-size: 11px;
+		padding: 10px 10px;
+	}
+
+	.notice-detail .table td:not(.type) {
+		padding: 10px 12px;
+	}
+
+	.notice-detail .select--button {
+		justify-content: flex-end;
+		flex-wrap: wrap;
+	}
+}

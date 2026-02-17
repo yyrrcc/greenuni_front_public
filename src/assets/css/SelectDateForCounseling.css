@@ -1,0 +1,114 @@
+/* SelectDateForCounseling.css */
+
+.sdc-wrap {
+	width: 100%;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+/* 로딩/빈 상태 */
+.sdc-loading,
+.sdc-empty {
+	text-align: center;
+	color: #777;
+	padding: 48px 20px;
+	background: #f9fafc;
+	border-radius: 12px;
+	font-size: 15px;
+}
+
+/* 섹션 타이틀 */
+.sdc-section-title {
+	font-size: 15px;
+	font-weight: 600;
+	margin-bottom: 16px;
+	color: #333;
+}
+
+/* 날짜 가로 정렬 (그리드) */
+.sdc-date-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 16px;
+	margin-bottom: 20px;
+}
+
+/* 날짜 컬럼 */
+.sdc-date-col {
+	background: #f9fafc;
+	border-radius: 12px;
+	padding: 12px;
+	border: 1px solid #e8eaed;
+}
+
+/* 날짜 헤더 */
+.sdc-date-title {
+	font-size: 14px;
+	font-weight: 600;
+	text-align: center;
+	margin-bottom: 10px;
+	padding-bottom: 8px;
+	border-bottom: 2px solid #155c34;
+	color: #333;
+}
+
+/* 시간 세로 정렬 */
+.sdc-time-col {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+/* 시간 버튼 */
+.sdc-time-btn {
+	padding: 10px 12px;
+	border-radius: 8px;
+	border: 1px solid #ddd;
+	background: #fff;
+	cursor: pointer;
+	font-size: 14px;
+	transition: all 0.15s ease;
+	text-align: center;
+}
+
+.sdc-time-btn:hover {
+	border-color: #155c34;
+	background: #f6f9ff;
+}
+
+.sdc-time-btn.sdc-active {
+	border-color: #155c34;
+	background: #eef4ff;
+	font-weight: 600;
+	color: #155c34;
+}
+
+.sdc-time-btn:disabled {
+	background: #f0f0f0;
+	color: #aaa;
+	cursor: not-allowed;
+	border-color: #e0e0e0;
+}
+
+/* SelectDateForCounseling.css 추가 */
+@media (max-width: 768px) {
+	.sdc-date-row {
+		grid-template-columns: 1fr; /* 모바일에서 세로 나열 */
+	}
+}
+
+/* ReserveForm.css 추가 */
+@media (max-width: 768px) {
+	.rf-wrap {
+		padding: 20px;
+	}
+
+	.rf-textarea {
+		min-height: 100px;
+	}
+
+	.rf-submit-btn {
+		height: 44px;
+		font-size: 14px;
+	}
+}

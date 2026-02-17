@@ -1,0 +1,64 @@
+.usd-wrap {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 28px;
+	background: #ffffff;
+	border-radius: 14px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.usd-title {
+	text-align: center;
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 24px;
+	border-bottom: 2px solid #2c3e50;
+	padding-bottom: 8px;
+}
+
+.usd-form {
+	width: 100%;
+}
+
+.usd-box {
+	padding: 20px;
+	border-radius: 12px;
+	background: #fafbfd;
+	margin-bottom: 24px;
+}
+
+/* InputForm 내부 input/textarea는 기존 스타일 유지 */
+
+.usd-action {
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+.usd-btn {
+	min-width: 100px;
+	height: 40px;
+	border-radius: 8px;
+	border: none;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.usd-cancel {
+	background: #eaeaea;
+	color: #333;
+}
+
+.usd-cancel:hover {
+	background: #dcdcdc;
+}
+
+.usd-submit {
+	background: #5b8def;
+	color: #ffffff;
+}
+
+.usd-submit:hover {
+	background: #4a7fe0;
+}

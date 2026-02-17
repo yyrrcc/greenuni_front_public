@@ -1,0 +1,222 @@
+:root {
+	--primary-green: #15803d;
+	--primary-green-dark: #0f6b3a;
+
+	--border-soft: rgba(15, 23, 42, 0.1);
+	--shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.06);
+	--header-accent: rgba(21, 128, 61, 0.28);
+	--text-main: #111827;
+	--text-sub: #6b7280;
+
+	--radius-lg: 16px;
+	--radius-md: 12px;
+
+	--header-h: 104px;
+	--sidebar-w: 252px;
+}
+
+/* =========================
+   SIDEBAR (레이아웃 그리드 안에서 자연스럽게)
+========================= */
+.sidebar {
+	width: var(--sidebar-w);
+	flex-shrink: 0;
+
+	position: sticky;
+	top: var(--header-h);
+
+	align-self: start;
+}
+
+/* =========================
+   패널 카드 (길게 깔린 느낌 X)
+========================= */
+.sidebar-panel {
+	background: #fff;
+	border: 1px solid var(--border-soft);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-soft);
+
+	padding: 12px;
+}
+
+/* 메뉴 묶음 */
+.sidebar-nav {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+/* =========================
+   메뉴 버튼 (기능성/가독성 강화)
+   - Active: 좌측 인디케이터 + 은은한 초록 배경
+========================= */
+.sidebar-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	padding: 25px;
+	border-radius: var(--radius-md);
+
+	text-decoration: none;
+	color: var(--text-main);
+
+	border: 1px solid transparent;
+	background: transparent;
+
+	transition: background 0.16s ease, border-color 0.16s ease, transform 0.08s ease, box-shadow 0.16s ease;
+	position: relative;
+}
+
+/* 좌측 인디케이터(Active에서만 보임) */
+.sidebar-item::before {
+	content: '';
+	position: absolute;
+	left: 8px;
+	width: 4px;
+	height: 18px;
+	border-radius: 999px;
+	background: transparent;
+}
+
+/* 아이콘: 원형 배지 */
+.sidebar-item .material-symbols-rounded {
+	font-size: 18px;
+	line-height: 1;
+
+	width: 30px;
+	height: 30px;
+	border-radius: 999px;
+
+	display: grid;
+	place-items: center;
+
+	background: #f3f4f6;
+	color: #374151;
+
+	flex: 0 0 30px;
+}
+
+/* 라벨 */
+.sidebar-label {
+	font-size: 15px;
+	font-weight: 750;
+	line-height: 1.2;
+	color: var(--text-main);
+
+	/* 긴 텍스트 대응 */
+	white-space: normal;
+	word-break: keep-all;
+}
+
+/* hover */
+.sidebar-item:hover {
+	background: #f3f4f6;
+	border-color: rgba(15, 23, 42, 0.1);
+	transform: translateY(-1px);
+}
+
+/* active */
+.sidebar-item.active {
+	background: rgba(21, 128, 61, 0.1);
+	border-color: rgba(21, 128, 61, 0.2);
+	box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+.sidebar-item.active::before {
+	background: var(--primary-green);
+}
+
+.sidebar-item.active .material-symbols-rounded {
+	background: rgba(21, 128, 61, 0.14);
+	color: var(--primary-green-dark);
+}
+
+/* 기존 .sidebar 유지 (데스크탑) */
+.sidebar {
+	width: var(--sidebar-w, 252px);
+	position: sticky;
+	top: var(--header-h, 104px);
+	align-self: start;
+}
+
+/* 모바일: sidebar를 숨기지 말고, 상단 가로 메뉴로 바꿈 */
+@media (max-width: 768px) {
+	.sidebar {
+		width: 100%;
+		position: sticky;
+		top: var(--header-h, 104px);
+		z-index: 20;
+
+		/* 좌측 레이아웃 느낌 제거 */
+		align-self: stretch;
+	}
+
+	/* 패널을 가로 스크롤 바 형태로 */
+	.sidebar-panel {
+		padding: 10px 10px;
+		border-radius: 14px;
+	}
+
+	/* 세로 리스트 → 가로 스크롤 */
+	.sidebar-nav {
+		flex-direction: row;
+		gap: 8px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding-bottom: 2px;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	/* 스크롤바 너무 튀면 */
+	.sidebar-nav::-webkit-scrollbar {
+		height: 6px;
+	}
+	.sidebar-nav::-webkit-scrollbar-thumb {
+		background: rgba(15, 23, 42, 0.18);
+		border-radius: 999px;
+	}
+
+	/* 버튼을 칩 형태로 */
+	.sidebar-item {
+		flex: 0 0 auto;
+		padding: 20px 12px;
+		border-radius: 999px;
+
+		/* 칩 느낌 */
+		background: #f3f4f6;
+		border: 1px solid rgba(15, 23, 42, 0.1);
+		scroll-snap-align: start;
+	}
+
+	/* 아이콘은 모바일에서 빼도 깔끔(원하면 유지 가능) */
+	.sidebar-item .material-symbols-rounded {
+		display: none;
+	}
+
+	.sidebar-label {
+		font-size: 12.5px;
+		font-weight: 900;
+		white-space: nowrap;
+	}
+
+	/* active 칩 */
+	.sidebar-item.active {
+		background: rgba(21, 128, 61, 0.12);
+		border-color: rgba(21, 128, 61, 0.28);
+		box-shadow: none;
+	}
+
+	.sidebar-item::before {
+		display: none;
+	}
+}
+
+/* 모바일에서는 기존처럼 숨김 */
+@media (max-width: 768px) {
+	.sidebar {
+		display: none;
+	}
+}

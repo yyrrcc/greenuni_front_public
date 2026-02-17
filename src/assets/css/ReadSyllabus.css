@@ -1,0 +1,94 @@
+.rsd-wrap {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 28px;
+	background: #ffffff;
+	border-radius: 14px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.rsd-title {
+	text-align: center;
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 24px;
+	border-bottom: 2px solid #2c3e50;
+	padding-bottom: 8px;
+}
+
+.rsd-box {
+	margin-bottom: 24px;
+	padding: 20px;
+	border-radius: 12px;
+	background: #fafbfd;
+}
+
+.rsd-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.rsd-table th,
+.rsd-table td {
+	border: 1px solid #e1e4e8;
+	padding: 10px 12px;
+}
+
+.rsd-table th {
+	background: #f1f3f6;
+	text-align: center;
+	font-weight: 600;
+	width: 140px;
+}
+
+.rsd-table td {
+	background: #ffffff;
+}
+
+.rsd-wide-th {
+	text-align: left;
+	font-weight: 600;
+	background: #f1f3f6;
+}
+
+.rsd-text {
+	line-height: 1.6;
+	white-space: pre-wrap;
+}
+
+.rsd-action {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 16px;
+}
+
+.rsd-edit-btn {
+	min-width: 100px;
+	height: 40px;
+	border-radius: 8px;
+	border: none;
+	background: #5b8def;
+	color: #ffffff;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.rsd-edit-btn:hover {
+	background: #4a7fe0;
+}
+
+/* 섹션 제목 가운데 정렬 */
+.rsd-wide-th {
+	text-align: center;   /* 기존 left → center */
+	font-weight: 600;
+	background: #f1f3f6;
+}
+
+/* 본문도 가운데 정렬 */
+.rsd-text {
+	line-height: 1.7;
+	white-space: pre-wrap;
+	text-align: center;
+}

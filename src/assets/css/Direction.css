@@ -1,0 +1,292 @@
+:root {
+	--card-border: rgba(15, 23, 42, 0.08);
+	--card-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+	--card-shadow-hover: 0 14px 34px rgba(15, 23, 42, 0.12);
+
+	--radius-lg: 14px;
+	--radius-md: 12px;
+
+	--bg: #f9fafb;
+	--text: #111827;
+	--muted: #6b7280;
+	--line: #e5e7eb;
+
+	--btn: #111827;
+	--btn-hover: #0b1220;
+}
+
+/* ===== Page ===== */
+.direction-page {
+	background: radial-gradient(1200px 500px at 50% -220px, rgba(17, 24, 39, 0.08), transparent 60%), var(--bg);
+	min-height: 100vh;
+}
+
+.direction-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 22px 16px 64px;
+}
+
+/* ===== Card ===== */
+.direction-card {
+	background: #fff;
+	border: 1px solid var(--card-border);
+	border-radius: var(--radius-lg);
+	padding: 18px;
+	box-shadow: var(--card-shadow);
+	transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.direction-card:hover {
+	box-shadow: var(--card-shadow-hover);
+	transform: translateY(-1px);
+	border-color: rgba(15, 23, 42, 0.12);
+}
+
+/* 상단 헤더 */
+.direction-card-head {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 14px;
+	margin-bottom: 14px;
+}
+
+.direction-card-title {
+	font-size: 17px;
+	font-weight: 950;
+	color: var(--text);
+	letter-spacing: -0.015em;
+}
+
+.direction-card-sub {
+	margin-top: 6px;
+	font-size: 13px;
+	color: var(--muted);
+	font-weight: 750;
+	line-height: 1.35;
+}
+
+/* ===== Address Box ===== */
+.direction-address-box {
+	margin-top: 2px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius-md);
+	padding: 12px 12px;
+	background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+}
+
+.direction-label {
+	font-size: 12px;
+	color: var(--muted);
+	font-weight: 900;
+	margin-bottom: 6px;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.direction-value {
+	font-size: 14px;
+	font-weight: 950;
+	color: var(--text);
+	line-height: 1.4;
+}
+
+/* ===== Primary Button (주소 복사) ===== */
+.direction-btn {
+	border: 1px solid var(--btn);
+	background: var(--btn);
+	color: #fff;
+	border-radius: 12px;
+	padding: 10px 12px;
+	font-weight: 950;
+	font-size: 13px;
+	cursor: pointer;
+	transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
+	box-shadow: 0 10px 18px rgba(15, 23, 42, 0.14);
+	white-space: nowrap;
+}
+
+.direction-btn:hover {
+	background: var(--btn-hover);
+	transform: translateY(-1px);
+}
+
+.direction-btn:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* ===== External Map Links ===== */
+/* ✅ 더 작게 + pill 형태 */
+.direction-actions {
+	margin-top: 12px;
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.direction-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+
+	border: 1px solid var(--line);
+	background: #fff;
+	border-radius: 999px;
+
+	padding: 8px 10px; /* ✅ 작게 */
+	font-size: 12.5px; /* ✅ 작게 */
+	color: var(--text);
+	font-weight: 950;
+
+	text-decoration: none;
+	transition: background 0.12s ease, transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.direction-link:hover {
+	background: rgba(17, 24, 39, 0.04);
+	border-color: rgba(15, 23, 42, 0.14);
+	transform: translateY(-1px);
+	box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+}
+
+.direction-link:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* 버튼들 우측 화살표 느낌 살짝 정돈 */
+.direction-link::after {
+	content: '›';
+	font-size: 16px;
+	line-height: 1;
+	opacity: 0.75;
+	margin-left: 2px;
+}
+
+/* ===== Grid ===== */
+.direction-grid {
+	margin-top: 14px;
+	display: grid;
+	grid-template-columns: 1.2fr 1fr;
+	gap: 14px;
+	align-items: start;
+}
+
+/* ===== Kakao RoughMap Wrap ===== */
+.kakao-roughmap-wrap {
+	margin-top: 12px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	background: #fff;
+}
+
+/* 퍼가기 지도 반응형 보정 */
+.root_daum_roughmap {
+	width: 100% !important;
+	min-height: 360px;
+}
+
+.root_daum_roughmap .wrap_map {
+	width: 100% !important;
+}
+
+/* 안내 문구 */
+.direction-hint {
+	margin-top: 10px;
+	font-size: 12px;
+	color: var(--muted);
+	font-weight: 750;
+}
+
+/* ===== Info (교통 안내) ===== */
+.direction-info {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 12px;
+}
+
+.direction-info-row {
+	padding: 12px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius-md);
+	background: #fff;
+	transition: border-color 0.12s ease, transform 0.12s ease;
+}
+
+.direction-info-row:hover {
+	border-color: rgba(15, 23, 42, 0.14);
+	transform: translateY(-1px);
+}
+
+.direction-info-label {
+	font-size: 12px;
+	color: var(--muted);
+	font-weight: 950;
+	margin-bottom: 6px;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.direction-info-text {
+	font-size: 14px;
+	color: var(--text);
+	font-weight: 850;
+	line-height: 1.45;
+}
+
+/* ===== Responsive ===== */
+
+/* 1200 이하: 살짝 여백/폰트만 줄이기 */
+@media (max-width: 1200px) {
+	.direction-container {
+		padding: 20px 14px 56px;
+	}
+	.direction-card {
+		padding: 16px;
+	}
+}
+
+/* 900 이하: 1컬럼 + 버튼 정렬 변경 */
+@media (max-width: 900px) {
+	.direction-grid {
+		grid-template-columns: 1fr;
+	}
+	.direction-card-head {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	.direction-btn {
+		width: 100%;
+	}
+}
+
+/* 600 이하: 링크 버튼을 2열 느낌으로 */
+@media (max-width: 600px) {
+	.direction-actions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 8px;
+	}
+	.direction-link {
+		width: 100%;
+		justify-content: space-between;
+		padding: 9px 10px;
+	}
+	/* 짝수 열 정리용(원하면 제거 가능) */
+	.direction-link::after {
+		margin-left: auto;
+	}
+}
+
+/* 420 이하: 링크 버튼 1열 */
+@media (max-width: 420px) {
+	.direction-actions {
+		grid-template-columns: 1fr;
+	}
+}

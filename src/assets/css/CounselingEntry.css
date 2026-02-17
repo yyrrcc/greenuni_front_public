@@ -1,0 +1,33 @@
+.entry-wrap {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.entry-btn {
+  width: 280px;
+  height: 72px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.professor {
+  background-color: #6bcf2e;
+  color: #fff;
+}
+
+.student {
+  background-color: #6ec1e4;
+  color: #fff;
+}
+
+.video {
+  background-color: #3b64a5;
+  color: #fff;
+}

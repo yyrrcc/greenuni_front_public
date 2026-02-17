@@ -1,0 +1,213 @@
+/* MyCounselingManage.css */
+/* 프로젝트 공통 톤: white card + gray border + #111827 text */
+
+:root {
+	--cm-text: #111827;
+	--cm-sub: #6b7280;
+	--cm-border: #e5e7eb;
+	--cm-bg: #f9fafb;
+	--cm-card: #ffffff;
+	--cm-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+	--cm-radius: 18px;
+}
+
+/* Page */
+.cm-page {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	color: var(--cm-text);
+}
+
+/* Header */
+.cm-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+
+	background: var(--cm-card);
+	border: 1px solid var(--cm-border);
+	border-radius: var(--cm-radius);
+	padding: 18px 20px;
+	box-shadow: var(--cm-shadow);
+}
+
+.cm-title {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 800;
+	letter-spacing: -0.2px;
+}
+
+.cm-subtitle {
+	margin: 6px 0 0;
+	font-size: 13px;
+	color: var(--cm-sub);
+	line-height: 1.4;
+}
+
+/* Card */
+.cm-card {
+	background: var(--cm-card);
+	border: 1px solid var(--cm-border);
+	border-radius: var(--cm-radius);
+	padding: 18px 20px;
+	box-shadow: var(--cm-shadow);
+}
+
+.cm-card-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 12px;
+}
+
+.cm-card-title {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 800;
+	letter-spacing: -0.15px;
+}
+
+/* Badge */
+.cm-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 26px;
+	padding: 0 10px;
+
+	border: 1px solid var(--cm-border);
+	border-radius: 999px;
+	background: #fff;
+	font-size: 12px;
+	color: var(--cm-sub);
+	white-space: nowrap;
+}
+
+/* Filter */
+.cm-filter {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.cm-filter-label {
+	font-size: 12px;
+	color: var(--cm-sub);
+	font-weight: 700;
+}
+
+.cm-select {
+	height: 36px;
+	min-width: 200px;
+	padding: 0 12px;
+
+	border: 1px solid var(--cm-border);
+	border-radius: 12px;
+	background: #fff;
+	color: var(--cm-text);
+	font-size: 13px;
+
+	outline: none;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cm-select:focus {
+	border-color: #111827;
+	box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.08);
+}
+
+/* Table wrapper (DataTable 자체 스타일과 충돌 최소화) */
+.cm-table {
+	border: 1px solid var(--cm-border);
+	border-radius: 14px;
+	overflow: hidden;
+	background: #fff;
+}
+
+/* Empty state */
+.cm-empty {
+	padding: 14px 12px;
+	border: 1px dashed var(--cm-border);
+	border-radius: 14px;
+	background: #fff;
+	color: var(--cm-sub);
+	font-size: 13px;
+}
+
+/* Actions */
+.cm-actions {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+/* Buttons */
+.cm-btn {
+	height: 34px;
+	padding: 0 12px;
+	border-radius: 12px;
+	font-size: 13px;
+	font-weight: 800;
+	border: 1px solid transparent;
+	cursor: pointer;
+	transition: transform 0.04s ease, background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.cm-btn:active {
+	transform: translateY(1px);
+}
+
+.cm-btn:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+}
+
+/* Primary: black */
+.cm-btn--primary {
+	color: #181a19;
+	border-color: #1c6846;
+}
+
+.cm-btn--primary:hover:not(:disabled) {
+	background: #0b1220;
+}
+
+/* Danger: subtle red */
+.cm-btn--danger {
+	background: #fff;
+	color: #b91c1c;
+	border-color: #fecaca;
+}
+
+.cm-btn--danger:hover:not(:disabled) {
+	background: #fff5f5;
+	border-color: #fca5a5;
+}
+
+/* Ghost: neutral */
+.cm-btn--ghost {
+	color: var(--cm-text);
+	border: 1px solid #111827;
+}
+
+.cm-btn--ghost:hover:not(:disabled) {
+	background: #f9fafb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.cm-header {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	.cm-select {
+		min-width: 160px;
+		width: 100%;
+	}
+}

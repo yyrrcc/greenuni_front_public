@@ -1,0 +1,13 @@
+.option-group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.option-label {
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-sub);
+}

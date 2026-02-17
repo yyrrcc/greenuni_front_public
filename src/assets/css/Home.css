@@ -1,0 +1,455 @@
+/* ===== 전체 래퍼 ===== */
+.public-shell {
+	height: 100vh;
+	background-color: #e5e7eb; /* 바깥 회색 */
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	padding: 0 32px;
+	font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+/* 메인 카드 레이아웃 */
+.public-layout {
+	width: 100%;
+	max-width: 1180px;
+	height: 88vh;
+	margin: auto 0;
+	background-color: #ffffff;
+	border-radius: 20px;
+	border: 1px solid rgba(148, 163, 184, 0.25);
+	box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+	display: grid;
+	grid-template-columns: 0.95fr 1.1fr;
+	overflow: hidden;
+}
+
+/* ================= 왼쪽 영역 ================= */
+.public-left {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	background: linear-gradient(145deg, #064e3b 0%, #21663b 45%, #1c5a33 100%);
+}
+
+/* 살짝 그라데이션 오버레이 */
+.public-left::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at 0% 0%, rgba(243, 250, 246, 0.6), transparent 55%);
+	opacity: 0.9;
+	pointer-events: none;
+}
+
+.public-left-inner {
+	position: relative;
+	z-index: 1;
+	flex: 1;
+	padding: 32px 40px 28px;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 로고 + 로그인 묶음 (세로 가운데 + 가로 가운데 느낌) */
+.public-left-main {
+	margin: auto 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 28px;
+}
+
+/* ===== 로고 영역 ===== */
+.public-logo-area {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.public-logo-image-wrap {
+	width: 64px;
+	height: 64px;
+	border-radius: 999px;
+	background-color: rgba(15, 23, 42, 0.06);
+	border: 1px solid rgba(248, 250, 252, 0.65);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.public-logo-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.public-logo-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 4px;
+}
+
+.public-logo-en {
+	font-size: 12px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: #ecfdf3;
+	opacity: 0.85;
+}
+
+.public-logo-ko {
+	font-size: 18px;
+	font-weight: 700;
+	color: #f9fafb;
+}
+
+/* ===== 로그인 카드 ===== */
+.public-login-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.public-login-card {
+	width: 100%;
+	max-width: 420px;
+	min-height: 250px;
+	background: rgba(248, 250, 252, 0.94);
+	border-radius: 18px;
+	border: 1px solid rgba(148, 163, 184, 0.2);
+	padding: 28px 28px 22px;
+	box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+	display: flex;
+	flex-direction: column;
+}
+
+.public-login-title {
+	font-size: 15px;
+	font-weight: 700;
+	color: #0f172a;
+	margin-bottom: 18px;
+}
+
+/* 폼 */
+.public-login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.public-input-group {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+}
+
+.public-input-label {
+	font-size: 12px;
+	font-weight: 600;
+	color: #6b7280;
+}
+
+.public-input {
+	border-radius: 999px;
+	border: 1px solid #d1d5db;
+	padding: 9px 14px;
+	font-size: 13px;
+	background-color: #f9fafb;
+	outline: none;
+	transition: border-color 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+
+.public-input::placeholder {
+	color: #9ca3af;
+}
+
+.public-input:focus {
+	border-color: #22c55e;
+	background-color: #ffffff;
+	box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+}
+
+/* 체크박스 / 옵션 */
+.public-login-options {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 12px;
+	color: #4b5563;
+}
+
+.public-checkbox-label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	cursor: pointer;
+}
+
+.public-checkbox {
+	width: 14px;
+	height: 14px;
+}
+
+/* 버튼 */
+.public-login-button {
+	margin-top: 10px;
+	width: 100%;
+	border: none;
+	border-radius: 999px;
+	padding: 10px 16px;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	background: linear-gradient(90deg, #237a43, #146d34);
+	color: #f9fafb;
+	cursor: pointer;
+	transition: transform 0.06s ease, box-shadow 0.18s ease, filter 0.12s ease;
+}
+
+.public-login-button:hover {
+	filter: brightness(1.03);
+	box-shadow: 0 14px 30px #16a34a8c;
+	transform: translateY(-1px);
+	background: linear-gradient(90deg, #237a43, #146d34);
+}
+
+.public-login-button:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* 링크 */
+.public-login-links {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	font-size: 11px;
+}
+
+.public-link-button {
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+	color: #15803d;
+	cursor: pointer;
+}
+
+.public-link-button:hover {
+	text-decoration: underline;
+}
+
+.public-link-divider {
+	color: #d1d5db;
+}
+
+/* 푸터 */
+.public-left-footer {
+	margin-top: auto;
+	font-size: 11px;
+	line-height: 1.5;
+	color: rgba(240, 253, 244, 0.8);
+}
+
+/* ================= 오른쪽 영역 ================= */
+.public-right {
+	flex: 1;
+	background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.06), #ffffff 55%);
+}
+
+.public-right-inner {
+	height: 100%;
+	padding: 32px 44px 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start; /* 🔹 가운데 정렬 제거 */
+}
+
+/* 오른쪽 전체 내용 래퍼 */
+.public-right-main {
+	max-width: 860px;
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+}
+
+/* 헤더: 왼쪽 로고와 비슷한 높이로 올라오게 */
+.public-right-header {
+	margin-top: 18px; /* 필요하면 12~24 사이로 조절해서 정밀하게 맞추면 됨 */
+}
+
+.public-right-title {
+	font-size: 24px;
+	letter-spacing: 0.2em;
+	font-weight: 800;
+	color: #111827;
+}
+
+.public-right-subtitle {
+	margin-top: 6px;
+	font-size: 13px;
+	color: #6b7280;
+}
+
+/* 패널 영역 */
+.public-right-panels {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* 패널 공통 스타일 */
+.public-panel {
+	border-radius: 14px;
+	border: 1px solid #e5e7eb;
+	padding: 18px 18px 14px;
+	background-color: #f9fafb;
+}
+
+.public-panel-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 8px;
+}
+
+.public-panel-header h2 {
+	font-size: 14px;
+	font-weight: 700;
+	color: #0f172a;
+}
+
+.panel-more-btn {
+	border: none;
+	background: none;
+	font-size: 11px;
+	color: #6b7280;
+	cursor: pointer;
+}
+
+.panel-more-btn:hover {
+	color: #15803d;
+}
+
+/* 공지 리스트 */
+.public-notice-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+
+.public-notice-list li {
+	display: grid;
+	grid-template-columns: 52px 1fr 76px;
+	gap: 6px;
+	align-items: center;
+	padding: 6px 0;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.public-notice-list li.empty-row {
+	grid-template-columns: 170px 1fr; /* schedule과 동일 */
+}
+
+/* (선택) 3번째 칸은 필요 없으니 숨기기 */
+.public-notice-list li.empty-row .public-notice-date {
+	display: none;
+}
+
+.public-notice-list li:last-child {
+	border-bottom: none;
+}
+
+.public-notice-category {
+	font-size: 11px;
+	font-weight: 600;
+	color: #15803d;
+}
+
+.public-notice-title {
+	color: #111827;
+}
+
+.public-notice-date {
+	font-size: 11px;
+	color: #9ca3af;
+	text-align: right;
+}
+
+/* 학사 일정 리스트 */
+.public-schedule-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+
+.public-schedule-list li {
+	display: grid;
+	grid-template-columns: 170px 1fr;
+	gap: 10px;
+	padding: 6px 0;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.public-schedule-list li:last-child {
+	border-bottom: none;
+}
+
+.public-schedule-date {
+	font-size: 12px;
+	color: #15803d;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.public-schedule-title {
+	color: #111827;
+}
+
+/* ================= 에러 메시지 error message ================= */
+.error-message {
+	color: red;
+}
+
+/* ================= 반응형 ================= */
+@media (max-width: 1024px) {
+	.public-layout {
+		height: auto;
+		grid-template-columns: 1fr;
+	}
+
+	.public-left {
+		min-height: 360px;
+	}
+
+	.public-right-inner {
+		padding: 24px 24px 28px;
+	}
+}
+
+@media (max-width: 640px) {
+	.public-shell {
+		padding: 0 12px;
+	}
+
+	.public-left-inner {
+		padding: 24px 20px 20px;
+	}
+
+	.public-login-card {
+		padding: 22px 20px 18px;
+	}
+
+	.public-right-inner {
+		padding: 20px 18px 24px;
+	}
+}

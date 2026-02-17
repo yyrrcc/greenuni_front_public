@@ -1,0 +1,101 @@
+.cdoc-wrap {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 28px;
+	background: #fff;
+	border-radius: 14px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.cdoc-title {
+	text-align: center;
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 24px;
+	border-bottom: 2px solid #2c3e50;
+	padding-bottom: 8px;
+}
+
+.cdoc-box {
+	margin-bottom: 24px;
+	padding: 20px;
+	border-radius: 12px;
+	background: #fafbfd;
+}
+
+.cdoc-sub-title {
+	font-size: 15px;
+	font-weight: 600;
+	margin-bottom: 12px;
+}
+
+.cdoc-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.cdoc-table th,
+.cdoc-table td {
+	border: 1px solid #e1e4e8;
+	padding: 10px 12px;
+}
+
+.cdoc-table th {
+	background: #f1f3f6;
+	width: 140px;
+	text-align: center;
+	font-weight: 600;
+}
+
+.cdoc-table td {
+	background: #ffffff;
+}
+
+.cdoc-reason {
+	line-height: 1.6;
+	white-space: pre-wrap;
+}
+
+.cdoc-textarea {
+	width: 100%;
+	min-height: 120px;
+	padding: 12px;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	resize: none;
+	background: #f9f9f9;
+	font-size: 13px;
+}
+
+.cdoc-action {
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+	margin-top: 20px;
+}
+
+.cdoc-btn {
+	min-width: 100px;
+	height: 40px;
+	border-radius: 8px;
+	border: none;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.cdoc-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.cdoc-reject {
+	background: #eaeaea;
+	color: #333;
+}
+
+.cdoc-approve {
+	background: #5b8def;
+	color: #fff;
+}

@@ -1,0 +1,217 @@
+/* ===========================
+   공통 색상
+   =========================== */
+:root {
+	--admin-green: #125028;
+	--admin-green-border: rgba(22, 163, 74, 0.32);
+	--admin-green-soft: rgba(22, 163, 74, 0.06);
+	--border-soft: #e5e7eb;
+	--text-main: #111827;
+	--text-sub: #6b7280;
+}
+
+/* ===========================
+   공통 카드 레이아웃
+   =========================== */
+
+.form-container {
+	width: 100%;
+	max-width: 1300px; /* 가운데 카드 폭 */
+	margin: 0 auto 24px;
+
+	background: #ffffff;
+	border-radius: 18px;
+	border: 1px solid var(--border-soft);
+	box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+	padding: 18px 22px 22px;
+}
+
+.form-container > h3 {
+	font-size: 18px;
+	font-weight: 700;
+	color: var(--text-main);
+	margin-bottom: 14px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.form-container > h3::before {
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 999px;
+	background: var(--admin-green);
+}
+
+/* 등록 폼 + 목록 카드가 연속으로 있을 때 간격 */
+.form-container + .form-container {
+	margin-top: 18px;
+}
+
+/* ===========================
+   엔티티 등록 폼 공통 레이아웃
+   =========================== */
+
+/* 기본 그리드: 페이지마다 모디파이어로 덮어씀 */
+.entity-form {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	column-gap: 18px;
+	row-gap: 14px;
+
+	padding: 16px 18px 18px;
+	margin-bottom: 16px;
+
+	background: #f9fafb;
+	border-radius: 16px;
+	border: 1px solid var(--admin-green-border);
+	box-shadow: 0 10px 18px var(--admin-green-soft);
+}
+
+/* 인풋/버튼 감싸는 래퍼 – 필요에 따라 span 조절 */
+.entity-field {
+	min-width: 0;
+}
+
+.entity-field--full {
+	grid-column: 1 / -1;
+}
+
+.entity-field--half {
+	grid-column: span 2;
+}
+
+.entity-field--sm {
+	max-width: 200px;
+}
+
+/* 폼 안에서 버튼/라디오가 인풋과 줄 맞게 */
+.entity-form .input-group,
+.entity-form .button-row {
+	margin-top: 2px;
+}
+
+.college-fom {
+	border: 1px solid rgb(18, 54, 18);
+}
+
+/* ===========================
+   페이지별 레이아웃 튜닝
+   =========================== */
+
+/* 강의 등록 폼: 4컬럼 그리드 */
+.entity-form--subject {
+	grid-template-columns: 1.6fr 1.6fr 1.2fr 1.2fr;
+}
+
+/* 학과 / 단과대 / 등록금 / 강의실 : 한 줄에 인풋 2개 + 버튼 */
+.entity-form--simple {
+	grid-template-columns: minmax(0, 2.2fr) minmax(0, 2.2fr) auto;
+	align-items: flex-end;
+}
+
+/* 강의실처럼 인풋 2개 + 버튼일 때 */
+.entity-form--room {
+	grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) auto;
+	align-items: flex-end;
+}
+
+/* ===========================
+/* ===========================
+   버튼 공통 스타일 (공지 검색 버튼 톤 재사용)
+   =========================== */
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	/* 🔽 공지 검색 버튼 사이즈 느낌 */
+	padding: 9px 12px;
+	border-radius: 12px;
+	font-size: 12px;
+	font-weight: 700;
+
+	border: none;
+	color: #ffffff;
+	background: linear-gradient(90deg, var(--primary-green), var(--primary-green-dark));
+	box-shadow: 0 10px 22px rgba(22, 163, 74, 0.22);
+
+	cursor: pointer;
+	transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease,
+		transform 0.06s ease;
+}
+
+.button:hover {
+	filter: brightness(1.03);
+	transform: translateY(-1px);
+	box-shadow: 0 14px 28px rgba(22, 163, 74, 0.32);
+}
+
+.button:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* 작은 버튼 (테이블 안 수정/삭제) */
+.button--sm {
+	padding: 6px 9px;
+	font-size: 11px;
+	border-radius: 10px;
+	box-shadow: none;
+}
+
+/* 서브 버튼 (새로입력, 취소 등) – 공지 reset 버튼 스타일 */
+.button--ghost {
+	background: #ffffff;
+	border: 1px solid var(--border-soft);
+	color: var(--text-main);
+	box-shadow: none;
+}
+
+.button--ghost:hover {
+	background: #f3f4f6;
+	border-color: #d1d5db;
+}
+
+/* 수정 버튼 – 초록 아웃라인 (테이블 액션용) */
+.button--outline.button--outline-green {
+	background: #ffffff;
+	border: 1px solid rgba(21, 128, 61, 0.35);
+	color: #14532d;
+	box-shadow: none;
+}
+
+.button--outline.button--outline-green:hover {
+	background: #ecfdf3;
+	box-shadow: 0 4px 10px rgba(22, 163, 74, 0.16);
+}
+
+/* 삭제 버튼 – 빨강 아웃라인 (테이블 액션용) */
+.button--outline.button--outline-red {
+	background: #ffffff;
+	border: 1px solid #fecaca;
+	color: #eb4343;
+	box-shadow: none;
+}
+
+.button--outline.button--outline-red:hover {
+	background: #fef2f2;
+	box-shadow: 0 4px 10px rgba(248, 113, 113, 0.18);
+}
+
+/* 비활성화 */
+.button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	box-shadow: none;
+	transform: none;
+}
+/* ===========================
+   등록 폼 아래 테이블 여백
+   =========================== */
+
+.form-container .data-table-wrapper {
+	margin-top: 10px;
+}
