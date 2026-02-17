@@ -1,22 +1,194 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+***
 
-Currently, two official plugins are available:
+# 그린 대학교 학사정보시스템 
+(Green University Learning Management System)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+학적·출결·성적 데이터를 통합 관리하고 AI 분석과 챗봇 자동응대를 통해 학업 위기 학생 조기 식별 및 학사 행정 효율화를 지원하는 대학 학사 통합 웹 서비스
 
-## React Compiler
+***
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
-Note: This will impact Vite dev & build performances.
+## 1. 개발 배경 및 목적
+### 1-1. 개발배경
+- 학적·출결·성적 등 핵심 학사 정보가 다수 시스템에 분산되어 통합 조회 및 교차 분석에 제약 발생
+- 중도탈락/휴학 등 리스크 발생 이후 사후 처리 중심으로 운영되어 선제적 개입 한계 존재
+- 단순 조회 중심 서비스 구조로 데이터 기반 부가가치(위험 예측, 맞춤 지원) 창출 제한
+- 반복적인 학사 문의에 대한 24시간 대응 채널 부재로 학생 불편 및 행정 리소스 소모 발생
 
-## Expanding the ESLint configuration
+### 1-2. 개발목표
+- 분산된 학생 데이터 (학적,출결,성적)의 통합 관리 및 단일 대시 보드 제공
+- AI분석 기반 학기별 학업 위기 학생 조기 발견 및 맞춤형 지원 체계 구축
+- AI챗봇을 통한 24시간 자동 학사 상담 서비스 제공으로 행정 부담 경감
+- 실시간 모니터링 시스템 구축으로 선제적 학생 관리 체계 마련
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-## Prettier Setting
+***
 
-Install [Prettier - Code formatter] and turn ["editor.formatOnSave": true] on
+
+## 2. 개발 기간 & 팀 구성
+- 개발 기간: 2025.12.01 ~ 2025.12.30
+- 팀원:
+  - 최유림: 
+    - 프로젝트 전체 일정 관리 및 진행 총괄
+    - 공통 모듈/컴포넌트 구조 정비
+    - 예비 수강신청 → 수강신청 전환 로직(기간 변경 시 자동 이월/초기화 규칙) 및 관련 배치/API 구현
+    - 교수 성적 확정 시점 연계 AI 분석 파이프라인 구축 및 위험학생 판별/관리 API 구현
+
+  - 최경미:
+    - 사용자 흐름(UI/UX) 개선
+    - 휴학 신청/취소 및 등록금(고지서/납부내역) 조회 기능 프론트·백 연동 구현
+    - 공지사항 첨부파일 업로드/다운로드 기능 구현(스토리지 연계 포함)
+    - WebRTC 화상 상담 기능 구현
+
+  - 고현아:
+    - 상담 예약/관리 기능 구현(요청·승인·반려, 일정 조회, 권한별 처리 흐름 포함)
+    - 누계 성적 조회 및 성적 등급 산출 로직 구현(규칙 기반 계산, 조회 API 포함)
+    - 배포 및 운영 환경 점검
+    - 기능 정의 및 설계 문서 작성
+
+***
+
+## 3. 개발 환경
+- Backend: Java 17, Spring Boot 3.5.9, Spring Data JPA, JWT, WebClient, WebSocket
+- Frontend: React, Vite, HTML/CSS, JavaScript, Axios
+- Database / Infra: MySQL 8.0 (AWS RDS), AWS (EC2, CloudFront)
+- AI / External API: Mistral API, Gemini API
+- DevOps / 협업: Gradle, GitHub, GitHub Actions, Postman
+- IDE: IntelliJ IDEA, VS Code
+
+***
+
+
+## 4. 주요 기능
+### 4-1. 공통
+
+#### 로그인
+- 아이디/비밀번호 찾기
+- 아이디 저장
+- JWT 기반 인증 토큰 발급 및 세션 유지 처리
+
+#### 개인 정보
+- 개인 정보 조회 및 수정
+- 비밀번호 변경
+
+#### 공지사항 및 학사일정
+- 공지사항 조회 및 검색 기능 제공
+- 공지사항 첨부파일 다운로드
+- 학사일정 조회
+
+#### 홈 화면 알림
+- 교직원: 휴학 신청 승인 등 업무 알림
+- 교수: 상담 신청 및 상담 일정 알림
+- 학생: 위험 과목 알림 및 상담 요청 알림
+
+#### AI 챗봇
+- 사용자 역할 기반 서비스 안내 및 자동 응답
+
+
+### 4-2. 기능 - 교직원
+
+#### 학사관리
+- 학생, 교수, 직원 등록
+- 학생, 교수 명단 조회 및 검색
+- 등록금 고지서 발송
+- 휴학 처리 및 신청서 검토
+- 수강 신청 기간 설정
+- 공지 CRUD 및 첨부파일 등록
+- 학사일정 CRUD
+
+#### 등록관리
+- 단과대학 CRUD
+- 학과 CRUD
+- 강의 CRUD
+- 강의실 CRUD
+- 등록금 CRUD
+
+
+<br>
+
+### 4-3. 기능 - 학생
+
+#### 등록 및 휴학
+- 등록금 고지서 조회 및 등록금 납부 내역 조회
+- 휴학 신청 및 취소 휴학 내역 조회
+- 학적 변동 내역 조회
+
+#### 예비 수강 신청 (수강 장바구니)
+- 대상 : 현재 학기에 재학 상태가 되는 학생
+- 신청/취소할 때마다 강의 현재 인원 변경
+- 신청 강의의 정원 초과 가능
+- 최대 수강 가능 학점 초과 불가능 (최대 18학점)
+- 신청자 본인의 시간표와 겹치는 강의 신청 불가능
+- 페이징 처리, 검색 기능
+
+#### 예비 수강 신청 → 수강 신청
+- 수강 신청 기간이 되면 예비 수강 신청 목록을 확인함 <br>
+  → 정원 >= 신청인원인 강의 : 예비 수강 신청 내역이 수강 신청 내역으로 자동으로 이월됨 <br>
+  → 정원 < 신청인원인 강의 : 신청인원이 0으로 초기화되며, 학생이 직접 신청하도록 함
+- 예비 수강 신청 내역이 있는 경우, 수강 신청 탭에 가장 먼저 출력되도록 함
+
+#### 수강 신청
+- 대상 : 현재 학기에 재학 상태가 되는 학생
+- 신청/취소할 때마다 강의 현재 인원 변경
+- 신청 강의의 정원 초과 불가능
+- 최대 수강 가능 학점 초과 불가능 (최대 18학점)
+- 신청자 본인의 시간표와 겹치는 강의 신청 불가능
+- 페이징 처리, 검색 기능
+- 수강 신청 내역 조회: 최종 수강 신청 시간표 -> 개인 별 수업 시간표 조회
+
+#### 성적
+- 금학기 성적 조회
+- 학기별 성적 조회
+- 누계 성적
+
+#### 강의 평가
+- 과목 별 강의평가 입력
+
+#### 내 학업 상태
+- 위험 과목 조회, 과목 별 검색
+- 위험 과목 별 담당교수에게 상담 요청
+
+#### 상담 예약 및 조회 / 화상 상담
+- 과목 별 교수의 상담 가능 시간 검색
+- 상담 신청, 상담 신청 내역 조회
+- 교수 요청 상담 내역 조회, 승인, 반려
+- 상담 승인 시 화상 상담 방 입장 코드 조회
+- 할당된 상담 방 코드 입력 후 접속
+- 화상 상담 기능
+- 상담 중 메모 기능, 5초마다 상호 공유
+
+
+
+### 4-4. 기능 - 교수
+
+#### 강의
+- 내 강의 학기별 조회
+- 강의계획서 등록 및 수정
+- 강의별 학생리스트 조회, 출결 및 성적 기입
+- 강의평가 확인
+
+#### 위험 학생 관리
+- 성적 입력 화면에서 확정 후 AI 버튼으로 성적 확정, 학생 별 출결 상태, 점수 정보 기반 AI 분석
+  1. 기준에 따른 위험 레벨, 위험 타입, 태그 분류
+  2. 위험 학생 별 요약 생성
+  3. 교수 권장 상담 가이드 생성
+  4. 학생 별 지침 생성
+- 금 학기 담당 위험 학생 조회, 과목, 위험 레벨 별 검색 조회
+
+#### 상담 관리 / 화상 상담
+- 금주 월요일 기준 2주 범위 평일 상담 일정 CRUD
+- 학생 -> 교수 상담 요청 조회, 승인, 반려
+- 교수 -> 학생 상담 요청 조회, 승인, 반려
+- 위험학생 관리 페이지에서 바로 상담 요청 가능
+- 확정된 상담 일정 조회, 과목 별 검색
+- 완료된 상담 일정 조회, 과목 별 검색
+- 할당된 상담 방 코드 입력 후 접속
+- 상담 중 참가자들이 텍스트를 통해 소통하거나 기록을 남길 수 있는 메모 기능
+
+
+***
+
+## 5. 기타 (API 키 및 보안 안내)
+본 레포지토리는 GitHub에 공개(Public)되어 있기 때문에, 실제 서비스에서 사용하는 민감한 정보(API Key, Client Secret 등) 는 모두 제거하거나 임의의 값으로 대체해 두었습니다.
+따라서 로컬 환경에서 이 프로젝트를 정상적으로 실행하기 위해서는, 각 항목들을 각자의 계정으로 직접 발급받고 환경 설정에 반영해 주셔야 합니다.
